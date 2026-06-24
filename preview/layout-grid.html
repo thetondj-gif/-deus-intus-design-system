@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Deus Intus Grid</title>
+  <link rel="stylesheet" href="../colors_and_type.css">
+  <style>
+    main { padding: var(--space-7); }
+    .grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: var(--space-5); }
+    .cell { min-height: 220px; padding: var(--space-5); }
+    @media (max-width: 760px) { .grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="di-command">Divine Oneness Grid</p>
+    <h1 class="di-display">Modular Storefront Layout</h1>
+    <section class="grid">
+      <article class="di-card cell"><h2 class="di-display">Hero</h2><p>Large visual, short command copy, clear CTA.</p></article>
+      <article class="di-card cell"><h2 class="di-display">Product</h2><p>Texture, material, and symbolic meaning.</p></article>
+      <article class="di-card cell"><h2 class="di-display">Law</h2><p>Educational section grounded in the 12 Universal Laws.</p></article>
+      <article class="di-card cell"><h2 class="di-display">CTA</h2><p class="di-command">Move with intention.</p></article>
+    </section>
+  </main>
+</body>
+</html>
