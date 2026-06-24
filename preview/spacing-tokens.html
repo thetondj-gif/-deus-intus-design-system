@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Deus Intus Spacing</title>
+  <link rel="stylesheet" href="../colors_and_type.css">
+  <style>
+    main { padding: var(--space-7); }
+    .stack { display: grid; gap: var(--space-4); max-width: 800px; }
+    .row { display: flex; align-items: center; gap: var(--space-4); }
+    .bar { height: 24px; background: var(--di-aether-gold); border-radius: 999px; }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="di-command">Spacing Tokens</p>
+    <h1 class="di-display">Breathing Room System</h1>
+    <section class="di-card stack" style="padding: var(--space-6);">
+      <div class="row"><code>space 2</code><div class="bar" style="width: 0.5rem;"></div></div>
+      <div class="row"><code>space 4</code><div class="bar" style="width: 1rem;"></div></div>
+      <div class="row"><code>space 6</code><div class="bar" style="width: 2rem;"></div></div>
+      <div class="row"><code>space 8</code><div class="bar" style="width: 5rem;"></div></div>
+      <div class="row"><code>space 9</code><div class="bar" style="width: 8rem;"></div></div>
+    </section>
+  </main>
+</body>
+</html>
