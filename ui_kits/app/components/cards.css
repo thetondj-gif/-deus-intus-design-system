@@ -1,0 +1,31 @@
+.kit-section {
+  padding: var(--space-7);
+}
+
+.kit-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--space-5);
+}
+
+.kit-hero {
+  grid-column: span 7;
+  padding: var(--space-7);
+}
+
+.kit-panel {
+  grid-column: span 5;
+  padding: var(--space-6);
+}
+
+.kit-product-card {
+  padding: var(--space-5);
+  min-height: 260px;
+}
+
+@media (max-width: 850px) {
+  .kit-hero,
+  .kit-panel {
+    grid-column: 1 / -1;
+  }
+}
