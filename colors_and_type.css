@@ -1,0 +1,114 @@
+:root {
+  /* Deus Intus colour tokens */
+  --di-obsidian: #050505;
+  --di-obsidian-soft: #111111;
+  --di-alabaster: #FAFAFA;
+  --di-alabaster-muted: #E7E2D8;
+  --di-aether-gold: #D4AF37;
+  --di-aether-gold-soft: #E3C86A;
+  --di-pineal-indigo: #2D004B;
+  --di-prana-sage: #8A9A86;
+
+  /* Semantic surfaces */
+  --color-bg: var(--di-obsidian);
+  --color-surface: #101010;
+  --color-surface-raised: #171717;
+  --color-text: var(--di-alabaster);
+  --color-text-muted: #BDB7AA;
+  --color-border: rgba(212, 175, 55, 0.28);
+  --color-focus: var(--di-aether-gold);
+  --color-success: var(--di-prana-sage);
+
+  /* Typography */
+  --font-display: "Space Grotesk", "Monument Extended", "Arial Black", system-ui, sans-serif;
+  --font-body: Inter, "Helvetica Now", Helvetica, Arial, system-ui, sans-serif;
+  --font-mono: "Roboto Mono", "Courier New", monospace;
+
+  --type-xs: 0.75rem;
+  --type-sm: 0.875rem;
+  --type-base: 1rem;
+  --type-lg: 1.25rem;
+  --type-xl: 1.75rem;
+  --type-2xl: 2.5rem;
+  --type-3xl: clamp(3rem, 8vw, 6.5rem);
+
+  --tracking-command: 0.18em;
+  --tracking-display: 0.08em;
+  --line-tight: 0.92;
+  --line-normal: 1.55;
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 5rem;
+  --space-9: 8rem;
+
+  /* Shape and depth */
+  --radius-sm: 0.35rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 2rem;
+  --shadow-soft: 0 24px 80px rgba(0, 0, 0, 0.45);
+  --shadow-gold: 0 0 34px rgba(212, 175, 55, 0.18);
+
+  /* States and motion */
+  --state-hover-lift: translateY(-2px);
+  --duration-breath: 900ms;
+  --duration-fast: 180ms;
+  --ease-breath: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  line-height: var(--line-normal);
+}
+
+.di-display {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-display);
+  line-height: var(--line-tight);
+}
+
+.di-command {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-command);
+}
+
+.di-card {
+  background: linear-gradient(145deg, var(--color-surface), var(--color-surface-raised));
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+}
+
+.di-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 0.95rem 1.35rem;
+  border: 1px solid var(--di-aether-gold);
+  border-radius: 999px;
+  background: var(--di-aether-gold);
+  color: var(--di-obsidian);
+  font-family: var(--font-mono);
+  font-size: var(--type-sm);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: transform var(--duration-fast) var(--ease-breath), opacity var(--duration-fast) var(--ease-breath);
+}
+
+.di-button:hover { transform: var(--state-hover-lift); }
+.di-button.secondary { background: transparent; color: var(--di-aether-gold); }
