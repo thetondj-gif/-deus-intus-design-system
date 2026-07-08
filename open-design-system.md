@@ -1,69 +1,103 @@
 # Deus Intus: Open Design System
 
-A comprehensive design framework balancing the raw, modern edge of premium streetwear with the profound depth of sacred geometry and spiritual mechanics.
+**Awaken the Power Within.**
 
-## 1. Core Brand Identity
+This repository is the public Deus Intus brand surface for agents, designers, and builders who need a stable visual source of truth outside the private product repos.
 
-- **The Vibe:** Premium, esoteric, empowering, and grounded.
-- **The Mission:** To merge high-frequency spiritual concepts—like the 12 Universal Laws and the Holy Glandular Triad—with high-quality, wearable streetwear.
-- **The Voice:** Authoritative but enlightening. Direct, intentional, and affirming, channeling the Command State.
+## 1. Brand core
 
-## 2. Color Palette
+- **Positioning:** sacred-modern, premium, cinematic, and emotionally grounded.
+- **Role:** translate ancient wisdom into modern products, interfaces, and brand moments.
+- **Feeling:** calm authority over hype, symbolic depth over decoration, luxury through restraint.
+- **Public promise:** help people return to inner authority, aligned action, and self-command.
 
-The palette relies on stark, premium contrasts accented by colors that resonate with esoteric and physiological energy centers.
+## 2. Colour architecture
 
-| Color | Hex Code | Role in Design |
+Use the canonical palette from `colors_and_type.css`.
+
+| Token | Hex | Role |
 | :--- | :--- | :--- |
-| **Obsidian** | `#050505` | Primary dark background. Represents the void, potential, and premium sleekness. |
-| **Alabaster** | `#FAFAFA` | Primary light background/text. Crisp and clinical, offering high contrast. |
-| **Aether Gold** | `#D4AF37` | Accent. Used exclusively for sacred geometry lines, subtle logos, and premium highlights. |
-| **Pineal Indigo** | `#2D004B` | Deep accent. Represents the third eye and the Holy Glandular Triad. |
-| **Prana Sage** | `#8A9A86` | Secondary accent. Earthy and grounding, used for lifestyle blocks and muted apparel. |
+| **Deep Navy** | `#0B213A` | Primary field, hero backgrounds, brand gravity |
+| **Midnight Navy** | `#081829` | Deeper gradient edge, visual depth |
+| **Ink** | `#12202E` | Fine detail, body contrast on light surfaces |
+| **Sacred Gold** | `#C9A227` | Premium hierarchy, CTA emphasis, symbolic highlights |
+| **Soft Gold** | `#D7C38A` | Secondary accents, borders, supporting detail |
+| **Luminous Aqua** | `#84D7D2` | Energy accents, focus lines, metaphysical lift |
+| **Mist Aqua** | `#D9F4F2` | Light supporting fields and quiet highlights |
+| **Bone** | `#F7F4EE` | Primary text and soft-light surfaces |
 
-## 3. Typography System
+Gold is emphasis, not wallpaper. Aqua is breath and signal, not the dominant brand colour.
 
-To fuse streetwear with spiritual teachings, the typography pairs brutalist, geometric headers with highly legible body copy.
+## 3. Typography system
 
-- **Primary Display — Logos & Large Headers:** Monument Extended or Space Grotesk. Bold, all-caps, widely tracked.
-- **Body Copy — Product Descriptions & UI:** Inter or Helvetica Now. Clean, neutral, and invisible.
-- **Command State Affirmations:** Roboto Mono or Courier New. Monospaced fonts create a source-code-of-the-universe aesthetic.
+The brand uses editorial contrast rather than tech-brand sameness.
 
-## 4. Visual Language & Graphic Rules
+- **Display:** `Italiana` for hero headlines and elevated section titles.
+- **Reflective serif:** `Lora` or `Cormorant Garamond` for quotes, poetic lines, and contemplative copy.
+- **Body:** `Montserrat` for clean UI and readable product/storytelling copy.
+- **Command/meta:** `Jura` in tracked uppercase for labels, metadata, and system moments.
 
-### Sacred Geometry
+Typography should feel spacious, composed, and premium. Avoid default SaaS stacks and avoid over-compressing display text.
 
-- **Line Weight:** Use ultra-fine, consistent stroke weights, usually 0.5pt to 1pt, for the Flower of Life, Metatron’s Cube, and related geometry.
-- **Application:** Never distort or stretch geometric patterns. They must remain mathematically perfect.
-- **Layering:** Overlay delicate geometry on top of heavy, bold typographic elements.
+## 4. Visual language
 
-### Imagery & Mockups
+### Sacred geometry
 
-- **Lighting:** Moody, directional lighting with deep shadows. Avoid overly bright, generic lifestyle photography.
-- **Focus:** Center on physical textures such as heavyweight cotton and embroidery details, paired with ethereal design elements.
+- Use geometry as structure, not clutter.
+- Prefer circles, arcs, halos, and fine-line framing over dense symbol piles.
+- Keep strokes mathematically clean and visually quiet.
+- One dominant motif per asset is the rule.
 
-### The Holy Glandular Triad
+### Composition
 
-- Represent the Pituitary, Pineal, and Hypothalamus as abstract, interconnected nodes, such as three illuminated spheres connected by Aether Gold vectors, rather than literal biological diagrams.
+- Central or near-central symbolic composition works best.
+- Large negative space is part of the message.
+- Contrast and hierarchy should read within three seconds.
+- Every surface should feel intentional enough for a premium brand deck or storefront.
 
-## 5. Layout & UI Principles
+### Photography and mockups
 
-When applying this to a digital storefront, the layout should reflect the order of the 12 Universal Laws.
+- Prefer moody, directional light and visible texture.
+- Make garments, print details, and materials feel tactile.
+- Avoid flat catalogue energy, loud gradients, and busy cosmic backgrounds.
 
-- **The Law of Divine Oneness — Grid Structure:** Use a strict, visible, modular grid layout. Everything has its exact place.
-- **The Law of Space — Negative Space:** Streetwear thrives on breathing room. Surround product images and affirmation text with large amounts of empty space.
-- **Micro-Interactions:** Keep animations smooth and intentional, such as a slow fade-in that mimics taking a deep breath.
+## 5. Interface principles
 
-## 6. Open Design Usage Notes
+- Dark luxury surfaces with subtle depth.
+- Thin gold or muted borders.
+- Bone text on navy fields.
+- Aqua reserved for guidance, signal, and energetic detail.
+- Motion should be slow, polished, and breath-like.
 
-Use this file as the primary reference for Deus Intus visual direction when generating:
+Every Deus Intus interface should feel like a ritual tool, not a generic dashboard.
 
-- product mockups
-- website banners
-- collection pages
-- social media posts
-- streetwear graphics
-- brand decks
-- Open Design prompts
-- Codex/OpenCode design-agent instructions
+## 6. Voice in UI
 
-Do not override the brand direction without explicit approval. Prioritise premium spiritual streetwear, clean sacred geometry, restrained luxury, and the tagline: **Awaken the Power Within.**
+Copy should be clear, grounded, empowering, and calm.
+
+Good phrases:
+
+- Command your state.
+- Return to centre.
+- Choose the aligned action.
+- Awaken the Power Within.
+
+Avoid:
+
+- guru superiority
+- vague spiritual fluff
+- hype-bro urgency
+- manipulative scarcity
+- public-facing "God within" phrasing
+
+## 7. Usage notes
+
+Use this design system when generating:
+
+- storefront and collection pages
+- product cards and mockups
+- social visuals and brand decks
+- app surfaces and dashboards
+- agent instructions and prompt templates
+
+If a generated output feels like generic wellness, generic SaaS, or cheap mysticism, it is off brand.

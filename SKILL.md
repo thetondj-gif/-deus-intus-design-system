@@ -1,10 +1,10 @@
 # Deus Intus Design System Skill
 
-Use this skill whenever creating or reviewing Deus Intus visual assets, product mockups, storefront UI, collection pages, social graphics, or prompt templates.
+Use this skill whenever creating or reviewing Deus Intus visual assets, product storytelling, storefront UI, collection pages, social graphics, or prompt-ready design references.
 
 ## Primary instruction
 
-Always treat the package files as the source of truth, especially:
+Treat these files as the package source of truth:
 
 - `open-design-system.md`
 - `DESIGN.md`
@@ -12,68 +12,79 @@ Always treat the package files as the source of truth, especially:
 - `preview/*.html`
 - `ui_kits/app/index.html`
 
-Lead with the Deus Intus tagline: **Awaken the Power Within.**
+Lead with the exact tagline: **Awaken the Power Within.**
 
 ## Brand behaviour
 
 Generate work that feels:
 
-- premium spiritual streetwear
-- modern, grounded, and esoteric
+- sacred-modern
+- premium and cinematic
 - calm but powerful
-- spacious, restrained, and intentional
-- suitable for product pages, mockups, apparel graphics, and social posts
+- spacious and restrained
+- emotionally grounded
 
 Avoid:
 
-- generic wellness templates
+- generic wellness styling
+- generic tech-dashboard styling
 - cluttered new-age effects
 - distorted sacred geometry
 - loud rainbow gradients
-- thin unreadable print details
-- cheap mockup styling
-- overexplaining the brand in every design
+- hype-heavy copy
 
 ## Colour usage
 
-Use `colors_and_type.css` tokens directly when producing HTML or UI work.
+Use `colors_and_type.css` tokens directly.
 
 Core palette:
 
-- Obsidian `#050505`
-- Alabaster `#FAFAFA`
-- Aether Gold `#D4AF37`
-- Pineal Indigo `#2D004B`
-- Prana Sage `#8A9A86`
+- Deep Navy `#0B213A`
+- Midnight `#081829`
+- Ink `#12202E`
+- Sacred Gold `#C9A227`
+- Soft Gold `#D7C38A`
+- Luminous Aqua `#84D7D2`
+- Mist Aqua `#D9F4F2`
+- Bone `#F7F4EE`
 
-Aether Gold should be used with restraint for sacred geometry, premium highlights, borders, and call-to-action states.
+Gold is for hierarchy and emphasis. Aqua is a secondary energy accent. Bone is the preferred light text colour on dark surfaces.
 
 ## Typography usage
 
-- Display: Space Grotesk, Monument Extended, Arial Black fallback.
-- Body: Inter, Helvetica Now, Helvetica fallback.
-- Command State: Roboto Mono or Courier New.
+- Display: `Italiana`
+- Reflective/editorial: `Lora` or `Cormorant Garamond`
+- Body/UI: `Montserrat`
+- Command/meta: `Jura`
 
-Use uppercase, wide tracking, and short declarative lines for apparel graphics and command-state affirmations.
+Use spacious display settings, calm body copy, and tracked uppercase labels for metadata and system moments.
 
 ## Sacred geometry rules
 
-Geometry must remain mathematically clean. Do not stretch, skew, or casually distort sacred geometry. Use it as a structural layer, border, halo, node system, or fine-line background.
+Geometry must stay mathematically clean and visually restrained. Use circles, arcs, halos, and quiet linework as structure. Never let symbolism overpower readability.
 
-## Product and mockup rules
+## Product and surface rules
 
-Prioritise heavy cotton texture, embroidery detail, tactile surfaces, directional light, shadow depth, and spacious composition. Mockups should feel like premium editorial still-life photography rather than generic catalogue images.
+Prioritise:
+
+- dark luxury panels
+- fine borders
+- premium material feeling
+- generous negative space
+- calm CTA hierarchy
+
+Mockups and product surfaces should feel editorial and tactile, not flat or catalogue-generic.
 
 ## UI kit rules
 
 When building HTML interfaces:
 
-1. Import `../../colors_and_type.css` from `ui_kits/app/index.html`.
-2. Load modular files from `ui_kits/app/components/`.
-3. Use reusable class names such as `.di-card`, `.di-button`, `.di-display`, and `.di-command`.
-4. Create composed interfaces, not isolated fragments.
-5. Keep motion subtle and breath-like.
+1. Load `colors_and_type.css`.
+2. Load the modular files in `ui_kits/app/components/`.
+3. Reuse `.di-card`, `.di-button`, `.di-display`, `.di-command`, and related shared styles.
+4. Compose full brand moments instead of isolated fragments.
+5. Keep motion slow and polished.
 
 ## Audit repair behaviour
 
-If an audit reports missing package assets, update the actual package files. Do not suppress warnings, delete evidence, or satisfy findings by only rewriting prose. Preserve context and evidence notes outside `context/` when requested by the audit, and keep README, SKILL, DESIGN, preview cards, CSS tokens, and UI kit files in sync.
+If an audit finds drift, update the actual package files so docs, previews, tokens, and the applied UI kit stay in sync. Do not patch one layer and leave the rest contradicting it.

@@ -2,102 +2,116 @@
 
 **Awaken the Power Within.**
 
-This file converts the Deus Intus Open Design System into source-backed, reusable design rules for agents and template builders.
+This file turns the Deus Intus brand operating system into reusable rules for agents, template builders, and interface authors.
 
 ## Source context
 
-The package is backed by the public GitHub design-system file at `open-design-system.md` and the evidence note in `context/github/deus-intus-repo-evidence.md`.
+This package has been refreshed against the current Deus Intus brand guidance in:
 
-The source system defines Deus Intus as a premium spiritual streetwear brand that merges the 12 Universal Laws, sacred geometry, and spiritual mechanics with wearable apparel and digital storefront assets.
+- `brand-guidelines/BRAND_CONTEXT.md`
+- `brand-guidelines/deus_intus_brand_operating_system_v1_1.html`
+
+When older package language conflicts with those sources, the brand operating system wins.
 
 ## Brand principle
 
-Deus Intus should never look like a generic wellness brand. It should feel like a premium streetwear label with spiritual intelligence underneath the surface.
+Deus Intus should feel like ancient wisdom translated for modern consciousness: premium, sacred-modern, calm, and commercially sharp.
 
-The visual language should combine:
+The package should not drift into:
 
-- stark premium contrast
-- disciplined grid systems
-- sacred geometry used with precision
-- heavyweight apparel texture
-- minimal typography
-- energetic but restrained gold accents
-- grounded, authoritative copy
+- generic streetwear aggression
+- generic wellness softness
+- generic SaaS neutrality
+- cluttered new-age styling
 
 ## Colour system
 
-Use the colour tokens in `colors_and_type.css`.
+Use the tokens in `colors_and_type.css`.
 
-- Obsidian is the primary background and should dominate premium layouts.
-- Alabaster is the primary text and light background colour.
-- Aether Gold is the luxury accent and should not be overused.
-- Pineal Indigo adds esoteric depth and can support editorial or ritual-style layouts.
-- Prana Sage grounds lifestyle panels, muted apparel blocks, and softer secondary sections.
+- Deep Navy and Midnight form the primary field.
+- Bone carries primary text and softened light surfaces.
+- Sacred Gold creates premium emphasis and CTA hierarchy.
+- Soft Gold supports borders and elevated detail.
+- Luminous Aqua provides energetic guidance, focus states, and subtle activation.
+- Ink supports readable contrast on lighter grounds.
+
+Rule of restraint:
+
+- gold should stay selective
+- aqua should stay secondary
+- pure white and pure black should rarely appear
 
 ## Typography system
 
-Display typography should feel brutalist, geometric, confident, and widely tracked. Body typography should stay neutral and highly readable. Command State affirmations should use monospaced typography to create a coded, intentional, source-like feel.
+The type system should balance ritual and readability.
 
-Recommended hierarchy:
+1. `Italiana` for hero statements and section titles.
+2. `Lora` or `Cormorant Garamond` for reflective lines and editorial contrast.
+3. `Montserrat` for practical body copy and UI support.
+4. `Jura` for metadata, labels, and tracked system text.
 
-1. Large uppercase display heading.
-2. Short affirming subline.
-3. Minimal body copy.
-4. Monospaced command tag or CTA.
+Avoid compressed tech-brand type pairings that flatten the brand's emotional tone.
 
 ## Sacred geometry implementation
 
-Sacred geometry should function as structure, not decoration. Use it for:
+Sacred geometry is structural, not decorative.
+
+Use it for:
 
 - halos
-- borders
-- node systems
-- subtle overlays
-- product detail frames
-- background fields
-- modular section alignment
+- circles and arcs
+- quiet linework behind titles
+- product framing
+- symbolic anchors in hero panels
 
-Never skew or distort geometry. Keep stroke weight consistent, fine, and mathematically clean. For POD graphics, thicken lines where print limitations require it.
+Do not:
 
-## Apparel and product photography
+- distort geometry
+- stack too many sacred symbols together
+- let linework compete with legibility
 
-Mockups should use moody, directional lighting, deep shadows, negative space, and visible garment texture. Product imagery should emphasise heavyweight cotton, embroidery, screen-print detail, and tactile quality.
+## Surface and component rules
 
-Avoid bright, flat, generic ecommerce mockups unless producing a plain product listing requirement.
+- Cards should use dark navy panels, thin muted or gold-tinted borders, and soft depth.
+- Primary buttons use Sacred Gold with dark text.
+- Secondary buttons are transparent with gold borders.
+- Tertiary actions stay quiet with subtle underline or text emphasis.
+- Forms, cards, and layout blocks should leave breathing room and feel composed at mobile sizes.
 
-## Storefront layout rules
+## Copy rules
 
-Use the 12 Universal Laws as a structural metaphor:
+UI copy must be:
 
-- Divine Oneness: strict grid, unified spacing, alignment.
-- Vibration: subtle motion and energy accents.
-- Correspondence: repeated visual patterns across product, copy, and UI.
-- Inspired Action: clear CTA hierarchy.
-- Space: large negative space around key visuals.
+- grounded
+- clear
+- empowering
+- emotionally intelligent
 
-## UI and component rules
-
-The applied UI kit must load `colors_and_type.css` and modular components from `ui_kits/app/components/`. Components should use the shared `.di-*` classes and CSS tokens where possible.
-
-Every applied interface should include:
-
-- a hero or command-state panel
-- a product or collection card
-- a CTA area
-- a sacred geometry or triad visual reference
-- a clear tagline instance
+Prefer phrases that orient and steady the user. Avoid hype, hard-sell urgency, and mystical vagueness.
 
 ## Preview requirements
 
-The `preview/` directory contains focused, auditable cards. Each preview should be self-contained, import shared tokens, and demonstrate a specific part of the design system:
+The `preview/` directory should remain auditable and useful for brand review. Each preview should demonstrate one part of the system clearly:
 
-- colours
+- colour architecture
 - typography
-- spacing
-- buttons/components
-- brand assets
-- product or collection composition
+- spacing rhythm
+- CTA behaviour
+- layout logic
+- product or brand composition
+
+## Applied UI kit rules
+
+The UI kit must load `colors_and_type.css` plus the component styles in `ui_kits/app/components/`.
+
+Every applied screen should include:
+
+- one clear brand headline
+- one reflective or explanatory copy block
+- one CTA cluster
+- one symbolic visual or geometry reference
+- one or more premium cards or collection surfaces
 
 ## Final quality bar
 
-A Deus Intus design is successful when it feels premium, restrained, spiritually intelligent, and commercially wearable. It should be clear enough for ecommerce and strong enough to support a billion-dollar lifestyle brand ambition.
+A successful Deus Intus design feels like a premium ritual instrument: still, clear, elevated, and useful. It should feel expensive without noise and spiritual without cliché.

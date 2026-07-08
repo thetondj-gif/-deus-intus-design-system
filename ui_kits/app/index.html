@@ -9,43 +9,99 @@
   <link rel="stylesheet" href="components/cards.css">
   <link rel="stylesheet" href="components/triad.css">
   <style>
-    .app-shell { min-height: 100vh; }
-    .eyebrow { color: var(--di-aether-gold); }
-    .hero-title { font-size: var(--type-3xl); margin: var(--space-4) 0; }
-    .muted { color: var(--color-text-muted); }
-    .collection-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); margin-top: var(--space-5); }
-    @media (max-width: 850px) { .collection-row { grid-template-columns: 1fr; } }
+    .app-shell {
+      min-height: 100vh;
+      padding: var(--space-8) var(--space-6);
+    }
+
+    .kit-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: var(--space-5);
+      align-items: stretch;
+    }
+
+    .hero-title {
+      font-size: var(--type-4xl);
+      max-width: 10ch;
+      margin: var(--space-4) 0 var(--space-5);
+    }
+
+    .hero-copy {
+      max-width: 60ch;
+    }
+
+    .muted {
+      color: var(--color-text-muted);
+    }
+
+    .signal {
+      color: var(--di-aqua);
+    }
+
+    .collection-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+      margin-top: var(--space-5);
+    }
+
+    @media (max-width: 900px) {
+      .kit-grid,
+      .collection-row {
+        grid-template-columns: 1fr;
+      }
+
+      .app-shell {
+        padding: var(--space-7) var(--space-4);
+      }
+    }
   </style>
 </head>
 <body>
-  <main class="app-shell kit-section">
+  <main class="di-shell app-shell">
     <section class="kit-grid">
       <article class="di-card kit-hero">
         <span class="kit-pill">Deus Intus</span>
-        <p class="di-command eyebrow">Awaken the Power Within.</p>
-        <h1 class="di-display hero-title">Premium spiritual streetwear for the command state.</h1>
-        <p class="muted">A composed storefront interface using shared tokens, modular components, sacred geometry cues, and restrained Aether Gold accents.</p>
+        <p class="di-command di-eyebrow">Canonical UI Surface</p>
+        <h1 class="di-display hero-title">Awaken the Power Within.</h1>
+        <p class="di-lead hero-copy">A sacred-modern interface system built for calm authority, symbolic depth, and aligned action. Every surface should feel like a ritual tool: clear enough to use daily, elevated enough to remember.</p>
         <div class="kit-actions">
-          <a class="di-button" href="#">Shop Collection</a>
+          <a class="di-button" href="#">Enter the Collection</a>
           <a class="di-button secondary" href="#">Explore the Laws</a>
+          <a class="di-button tertiary" href="#">Return to Centre</a>
         </div>
       </article>
 
       <aside class="di-card kit-panel">
-        <p class="di-command">Holy Glandular Triad</p>
-        <div class="triad" aria-label="Abstract triad node visual">
+        <p class="di-command signal">Energy Geometry</p>
+        <div class="triad" aria-label="Abstract inner-flame geometry">
           <div class="triad-line"></div>
+          <span class="triad-halo"></span>
           <span class="triad-node one"></span>
           <span class="triad-node two"></span>
           <span class="triad-node three"></span>
         </div>
+        <p class="muted" style="margin: var(--space-4) 0 0;">Use symbolism as structure, not clutter. Geometry should support orientation and calm, never compete with the message.</p>
       </aside>
     </section>
 
     <section class="collection-row" aria-label="Collection cards">
-      <article class="di-card kit-product-card"><p class="di-command">12 Universal Laws</p><h2 class="di-display">Structured Energy</h2><p class="muted">Collection pages with law-based meaning and modular product grids.</p></article>
-      <article class="di-card kit-product-card"><p class="di-command">Sacred Geometry</p><h2 class="di-display">Perfect Form</h2><p class="muted">Fine-line geometry, dark grounds, and premium print restraint.</p></article>
-      <article class="di-card kit-product-card"><p class="di-command">Command State</p><h2 class="di-display">Inner Discipline</h2><p class="muted">Short affirmations designed for wearable self-mastery.</p></article>
+      <article class="di-card kit-product-card">
+        <p class="di-command">Inner Sovereignty</p>
+        <h2 class="di-display">Command Your State</h2>
+        <p class="muted">Primary collection surfaces should feel grounded, legible, and premium from the first glance.</p>
+      </article>
+      <article class="di-card kit-product-card">
+        <p class="di-command">Sacred Discipline</p>
+        <h2 class="di-display">Move With Intention</h2>
+        <p class="muted">Use gold for hierarchy, bone for calm readability, and aqua only where the interface needs energetic signal.</p>
+      </article>
+      <article class="di-card kit-product-card">
+        <p class="di-command">Editorial Calm</p>
+        <h2 class="di-display">Return to Centre</h2>
+        <p class="muted">Spacing, type contrast, and quiet depth should do more work than decoration.</p>
+      </article>
     </section>
   </main>
 </body>

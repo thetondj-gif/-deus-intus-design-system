@@ -6,26 +6,28 @@
   <title>Deus Intus Colours</title>
   <link rel="stylesheet" href="../colors_and_type.css">
   <style>
-    main { padding: var(--space-7); }
+    main { padding: var(--space-8) var(--space-6); }
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--space-5); }
-    .swatch { min-height: 190px; padding: var(--space-4); display: flex; flex-direction: column; justify-content: flex-end; }
-    .obsidian { background: var(--di-obsidian); }
-    .alabaster { background: var(--di-alabaster); color: var(--di-obsidian); }
-    .gold { background: var(--di-aether-gold); color: var(--di-obsidian); }
-    .indigo { background: var(--di-pineal-indigo); }
-    .sage { background: var(--di-prana-sage); color: var(--di-obsidian); }
+    .swatch { min-height: 196px; padding: var(--space-4); display: flex; flex-direction: column; justify-content: flex-end; }
+    .deep-navy { background: var(--di-deep-navy); }
+    .midnight { background: var(--di-midnight); }
+    .gold { background: var(--di-sacred-gold); color: var(--di-midnight); }
+    .aqua { background: var(--di-aqua); color: var(--di-ink); }
+    .bone { background: var(--di-bone); color: var(--di-ink); }
+    .panel { background: var(--di-panel); }
   </style>
 </head>
 <body>
-  <main>
-    <p class="di-command">Awaken the Power Within.</p>
-    <h1 class="di-display">Primary Colour System</h1>
+  <main class="di-shell">
+    <p class="di-command di-eyebrow">Canonical Palette</p>
+    <h1 class="di-display" style="font-size: var(--type-3xl); margin-bottom: var(--space-5);">Primary Colour System</h1>
     <section class="grid">
-      <article class="di-card swatch obsidian"><strong>Obsidian</strong><span>#050505</span></article>
-      <article class="di-card swatch alabaster"><strong>Alabaster</strong><span>#FAFAFA</span></article>
-      <article class="di-card swatch gold"><strong>Aether Gold</strong><span>#D4AF37</span></article>
-      <article class="di-card swatch indigo"><strong>Pineal Indigo</strong><span>#2D004B</span></article>
-      <article class="di-card swatch sage"><strong>Prana Sage</strong><span>#8A9A86</span></article>
+      <article class="di-card swatch deep-navy"><strong>Deep Navy</strong><span>#0B213A</span></article>
+      <article class="di-card swatch midnight"><strong>Midnight</strong><span>#081829</span></article>
+      <article class="di-card swatch panel"><strong>Panel Navy</strong><span>#0F2A47</span></article>
+      <article class="di-card swatch gold"><strong>Sacred Gold</strong><span>#C9A227</span></article>
+      <article class="di-card swatch aqua"><strong>Luminous Aqua</strong><span>#84D7D2</span></article>
+      <article class="di-card swatch bone"><strong>Bone</strong><span>#F7F4EE</span></article>
     </section>
   </main>
 </body>

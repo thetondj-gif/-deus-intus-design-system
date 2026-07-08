@@ -6,21 +6,49 @@
   <title>Deus Intus Product Card</title>
   <link rel="stylesheet" href="../colors_and_type.css">
   <style>
-    main { padding: var(--space-7); }
-    .product { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); padding: var(--space-6); align-items: center; max-width: 1000px; }
-    .mock { min-height: 360px; border: 1px solid var(--color-border); border-radius: var(--radius-xl); display: grid; place-items: center; background: radial-gradient(circle at 50% 35%, rgba(212,175,55,.16), transparent 38%), #0b0b0b; }
-    .symbol { color: var(--di-aether-gold); font-size: 5rem; }
+    main { padding: var(--space-8) var(--space-6); }
+    .product { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); padding: var(--space-6); align-items: center; max-width: 1040px; }
+    .mock {
+      min-height: 380px;
+      border: 1px solid var(--color-border-soft);
+      border-radius: var(--radius-xl);
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at 50% 36%, rgba(201, 162, 39, 0.16), transparent 24%),
+        radial-gradient(circle at 50% 50%, rgba(132, 215, 210, 0.1), transparent 42%),
+        #091929;
+    }
+    .symbol {
+      width: 180px;
+      height: 180px;
+      border: 1px solid rgba(201, 162, 39, 0.36);
+      border-radius: 50%;
+      position: relative;
+    }
+    .symbol::before,
+    .symbol::after {
+      content: "";
+      position: absolute;
+      inset: 26px;
+      border: 1px solid rgba(132, 215, 210, 0.36);
+      border-radius: 50%;
+    }
+    .symbol::after {
+      inset: 58px;
+      border-color: rgba(215, 195, 138, 0.42);
+    }
     @media (max-width: 760px) { .product { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
-  <main>
+  <main class="di-shell">
     <article class="di-card product">
-      <div class="mock"><span class="symbol">◇</span></div>
+      <div class="mock"><span class="symbol"></span></div>
       <section>
-        <p class="di-command">Sacred Geometry Collection</p>
-        <h1 class="di-display">Premium Heavyweight Tee</h1>
-        <p>Obsidian cotton, restrained Aether Gold geometry, and a calm command-state presence for everyday self-mastery.</p>
+        <p class="di-command di-eyebrow">Sacred Geometry Collection</p>
+        <h1 class="di-display" style="font-size: var(--type-3xl); margin: 0 0 var(--space-4);">Premium Heavyweight Tee</h1>
+        <p class="di-lead">Deep navy cotton, quiet ceremonial geometry, and a composed visual language that signals inner authority without noise.</p>
         <a class="di-button" href="#">View Collection</a>
       </section>
     </article>

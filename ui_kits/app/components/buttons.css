@@ -8,12 +8,13 @@
 .kit-pill {
   display: inline-flex;
   align-items: center;
-  padding: 0.45rem 0.75rem;
-  border: 1px solid var(--color-border);
+  padding: 0.5rem 0.85rem;
+  border: 1px solid rgba(132, 215, 210, 0.32);
   border-radius: 999px;
-  color: var(--di-aether-gold);
-  font-family: var(--font-mono);
+  color: var(--di-aqua);
+  background: rgba(132, 215, 210, 0.08);
+  font-family: var(--font-command);
   font-size: var(--type-xs);
-  letter-spacing: 0.1em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
 }
