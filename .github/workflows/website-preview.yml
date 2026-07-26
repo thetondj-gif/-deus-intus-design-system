@@ -8,82 +8,74 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
   group: deus-intus-website-preview-${{ github.event.pull_request.number || github.ref_name }}
   cancel-in-progress: true
 
 jobs:
-  build:
+  publish:
     if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
       - name: Download validated website artifact
         env:
-          ARTIFACT_URL: "https://sdmntpritalynorth.oaiusercontent.com/files/00000000-0028-8246-8422-b80bfc4d21c1/raw?se=2026-07-26T12:23:49Z&sp=r&sv=2026-02-06&sr=b&scid=1d47c88f-ca5e-55b2-9979-f3aabb503e0b&skoid=b32d65cd-c8f1-46fb-90df-c208671889d4&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-07-26T06:35:06Z&ske=2026-07-28T06:35:06Z&sks=b&skv=2026-02-06&sig=pUnz4cyDAWXHdcErwch%2BwYXazla2ki2PDjw9AtluWU8%3D"
+          ARTIFACT_URL: "https://sdmntprukwest.oaiusercontent.com/files/00000000-eec0-8243-9d21-86ce51ad9df7/raw?se=2026-07-26T12:27:58Z&sp=r&sv=2026-02-06&sr=b&scid=74fb6021-7503-5a98-a813-a3d7047c1bef&skoid=b32d65cd-c8f1-46fb-90df-c208671889d4&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-07-26T12:02:06Z&ske=2026-07-28T12:02:06Z&sks=b&skv=2026-02-06&sig=bBsKs0fs2NX0N8HE2x5EZhy%2BHCx12%2B3ppFboC/1D5D8%3D"
         run: |
-          curl --fail --location --retry 3 --output site.zip "$ARTIFACT_URL"
-          mkdir _site
-          unzip -q site.zip -d _site
-          test -f _site/index.html
-          touch _site/.nojekyll
+          rm -rf /tmp/deus-intus-site
+          mkdir -p /tmp/deus-intus-site
+          curl --fail --location --retry 3 --output /tmp/deus-intus-site.zip "$ARTIFACT_URL"
+          unzip -q /tmp/deus-intus-site.zip -d /tmp/deus-intus-site
+          test -f /tmp/deus-intus-site/index.html
 
-      - name: Adapt root paths for the preview repository
+      - name: Adapt links for static CDN hosting
         env:
-          PREVIEW_PREFIX: /-deus-intus-design-system
+          PREVIEW_BASE: https://raw.githack.com/thetondj-gif/-deus-intus-design-system/website-preview-site
         run: |
           python - <<'PY'
           import os
           import re
           from pathlib import Path
 
-          root = Path('_site')
-          prefix = os.environ['PREVIEW_PREFIX'].rstrip('/')
+          root = Path('/tmp/deus-intus-site')
+          base = os.environ['PREVIEW_BASE'].rstrip('/')
           suffixes = {'.html', '.css', '.js', '.json', '.webmanifest'}
-
           for path in root.rglob('*'):
               if not path.is_file() or path.suffix.lower() not in suffixes:
                   continue
               text = path.read_text(encoding='utf-8', errors='ignore')
               text = re.sub(
-                  r'(?P<q>["\'`])/(?!/|-deus-intus-design-system/)',
-                  lambda match: match.group('q') + prefix + '/',
+                  r'(?P<q>["\'`])/(?!/)',
+                  lambda match: match.group('q') + base + '/',
                   text,
               )
               text = re.sub(
-                  r'url\((?P<q>["\']?)/(?!/|-deus-intus-design-system/)',
-                  lambda match: 'url(' + match.group('q') + prefix + '/',
+                  r'url\((?P<q>["\']?)/(?!/)',
+                  lambda match: 'url(' + match.group('q') + base + '/',
                   text,
               )
               path.write_text(text, encoding='utf-8')
           PY
 
-      - name: Verify preview entry assets
+      - name: Verify compiled preview
         run: |
-          test -s _site/index.html
-          test -s _site/assets/css/site.css
-          test -s _site/assets/js/site.js
+          test -s /tmp/deus-intus-site/index.html
+          test -s /tmp/deus-intus-site/assets/css/site.css
+          test -s /tmp/deus-intus-site/assets/js/site.js
+          grep -q 'raw.githack.com/thetondj-gif/-deus-intus-design-system/website-preview-site/assets/css/site.css' /tmp/deus-intus-site/index.html
 
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
-        with:
-          enablement: true
-
-      - name: Upload website
-        uses: actions/upload-pages-artifact@v4
-        with:
-          path: _site
-
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy preview
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Publish isolated preview branch
+        run: |
+          git config user.name "Deus Intus Preview Bot"
+          git config user.email "preview@deusintus.com"
+          git switch --orphan website-preview-site
+          git rm -rf .
+          cp -a /tmp/deus-intus-site/. .
+          touch .nojekyll
+          git add -A
+          git commit -m "Publish validated Deus Intus website preview"
+          git push --force origin HEAD:website-preview-site
