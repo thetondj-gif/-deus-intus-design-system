@@ -2,7 +2,9 @@ name: Deus Intus website preview
 
 on:
   push:
-    branches: [website-preview]
+    branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -11,16 +13,17 @@ permissions:
   id-token: write
 
 concurrency:
-  group: deus-intus-website-preview
+  group: deus-intus-website-preview-${{ github.event.pull_request.number || github.ref_name }}
   cancel-in-progress: true
 
 jobs:
   build:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     steps:
       - name: Download validated website artifact
         env:
-          ARTIFACT_URL: "https://sdmntprnortheu.oaiusercontent.com/files/00000000-8198-81f4-98ce-6d8ab0370df0/raw?se=2026-07-26T12:20:08Z&sp=r&sv=2026-02-06&sr=b&scid=914a5b13-7c21-52b2-9ee1-6845a9c38ab9&skoid=b32d65cd-c8f1-46fb-90df-c208671889d4&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-07-26T08:12:54Z&ske=2026-07-28T08:12:54Z&sks=b&skv=2026-02-06&sig=M3u25MkN4629gbgG0gFoT85UHJbTrNFfE4uNuevv27A%3D"
+          ARTIFACT_URL: "https://sdmntpritalynorth.oaiusercontent.com/files/00000000-0028-8246-8422-b80bfc4d21c1/raw?se=2026-07-26T12:23:49Z&sp=r&sv=2026-02-06&sr=b&scid=1d47c88f-ca5e-55b2-9979-f3aabb503e0b&skoid=b32d65cd-c8f1-46fb-90df-c208671889d4&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-07-26T06:35:06Z&ske=2026-07-28T06:35:06Z&sks=b&skv=2026-02-06&sig=pUnz4cyDAWXHdcErwch%2BwYXazla2ki2PDjw9AtluWU8%3D"
         run: |
           curl --fail --location --retry 3 --output site.zip "$ARTIFACT_URL"
           mkdir _site
