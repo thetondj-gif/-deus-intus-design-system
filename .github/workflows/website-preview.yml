@@ -1,0 +1,86 @@
+name: Deus Intus website preview
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: deus-intus-website-preview
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download validated website artifact
+        env:
+          ARTIFACT_URL: "https://sdmntprnortheu.oaiusercontent.com/files/00000000-8198-81f4-98ce-6d8ab0370df0/raw?se=2026-07-26T12:20:08Z&sp=r&sv=2026-02-06&sr=b&scid=914a5b13-7c21-52b2-9ee1-6845a9c38ab9&skoid=b32d65cd-c8f1-46fb-90df-c208671889d4&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-07-26T08:12:54Z&ske=2026-07-28T08:12:54Z&sks=b&skv=2026-02-06&sig=M3u25MkN4629gbgG0gFoT85UHJbTrNFfE4uNuevv27A%3D"
+        run: |
+          curl --fail --location --retry 3 --output site.zip "$ARTIFACT_URL"
+          mkdir _site
+          unzip -q site.zip -d _site
+          test -f _site/index.html
+          touch _site/.nojekyll
+
+      - name: Adapt root paths for the preview repository
+        env:
+          PREVIEW_PREFIX: /-deus-intus-design-system
+        run: |
+          python - <<'PY'
+          import os
+          import re
+          from pathlib import Path
+
+          root = Path('_site')
+          prefix = os.environ['PREVIEW_PREFIX'].rstrip('/')
+          suffixes = {'.html', '.css', '.js', '.json', '.webmanifest'}
+
+          for path in root.rglob('*'):
+              if not path.is_file() or path.suffix.lower() not in suffixes:
+                  continue
+              text = path.read_text(encoding='utf-8', errors='ignore')
+              text = re.sub(
+                  r'(?P<q>["\'`])/(?!/|-deus-intus-design-system/)',
+                  lambda match: match.group('q') + prefix + '/',
+                  text,
+              )
+              text = re.sub(
+                  r'url\((?P<q>["\']?)/(?!/|-deus-intus-design-system/)',
+                  lambda match: 'url(' + match.group('q') + prefix + '/',
+                  text,
+              )
+              path.write_text(text, encoding='utf-8')
+          PY
+
+      - name: Verify preview entry assets
+        run: |
+          test -s _site/index.html
+          test -s _site/assets/css/site.css
+          test -s _site/assets/js/site.js
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Upload website
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy preview
+        id: deployment
+        uses: actions/deploy-pages@v4
