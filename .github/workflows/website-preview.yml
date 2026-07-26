@@ -24,7 +24,7 @@ jobs:
 
       - name: Download validated website artifact
         env:
-          ARTIFACT_URL: "https://sdmntprnortheu.oaiusercontent.com/files/00000000-5194-81f4-a163-ed7031bd8352/raw?se=2026-07-26T12:30:59Z&sp=r&sv=2026-02-06&sr=b&scid=1a78e073-532e-5eb3-a5ce-9804571f04cd&skoid=b32d65cd-c8f1-46fb-90df-c208671889d4&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-07-26T08:03:39Z&ske=2026-07-28T08:03:39Z&sks=b&skv=2026-02-06&sig=x9K7bhUjz9CdnC44wjFPunP%2BVlE/XIxOIhkpc/eh3iI%3D"
+          ARTIFACT_URL: "https://sdmntpritalynorth.oaiusercontent.com/files/00000000-7138-8246-b9b6-dbb51f578c0f/raw?se=2026-07-26T12:34:26Z&sp=r&sv=2026-02-06&sr=b&scid=ffccb1dc-a9f6-512c-a432-db68090724d6&skoid=b32d65cd-c8f1-46fb-90df-c208671889d4&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-07-26T12:02:38Z&ske=2026-07-28T12:02:38Z&sks=b&skv=2026-02-06&sig=y8Yc5Dt7AByjB6XAHh/rFGKKnd7UHpbmgsIpq8Q49oc%3D"
         run: |
           rm -rf /tmp/deus-intus-site
           mkdir -p /tmp/deus-intus-site
@@ -44,17 +44,25 @@ jobs:
           root = Path('/tmp/deus-intus-site')
           base = os.environ['PREVIEW_BASE'].rstrip('/')
           suffixes = {'.html', '.css', '.js', '.json', '.webmanifest'}
+
+          opening_path = re.compile(r'(?P<prefix>[=(:,\[\s])(?P<q>["\'])/(?!/)')
+          css_path = re.compile(r'url\((?P<q>["\']?)/(?!/)')
+          srcset = re.compile(r'(?P<prefix>\bsrcset\s*=\s*)(?P<q>["\'])(?P<value>.*?)(?P=q)', re.I | re.S)
+
+          def rewrite_srcset(match: re.Match[str]) -> str:
+              value = re.sub(r'(^|,\s*)/(?!/)', lambda item: item.group(1) + base + '/', match.group('value'))
+              return match.group('prefix') + match.group('q') + value + match.group('q')
+
           for path in root.rglob('*'):
               if not path.is_file() or path.suffix.lower() not in suffixes:
                   continue
               text = path.read_text(encoding='utf-8', errors='ignore')
-              text = re.sub(
-                  r'(?P<q>["\'`])/(?!/)',
-                  lambda match: match.group('q') + base + '/',
+              text = srcset.sub(rewrite_srcset, text)
+              text = opening_path.sub(
+                  lambda match: match.group('prefix') + match.group('q') + base + '/',
                   text,
               )
-              text = re.sub(
-                  r'url\((?P<q>["\']?)/(?!/)',
+              text = css_path.sub(
                   lambda match: 'url(' + match.group('q') + base + '/',
                   text,
               )
@@ -67,6 +75,7 @@ jobs:
           test -s /tmp/deus-intus-site/assets/css/site.css
           test -s /tmp/deus-intus-site/assets/js/site.js
           grep -q 'raw.githack.com/thetondj-gif/-deus-intus-design-system/website-preview-site/assets/css/site.css' /tmp/deus-intus-site/index.html
+          ! grep -R -nE 'd="[^"]*"https://raw\.githack' /tmp/deus-intus-site --include='*.html'
 
       - name: Publish isolated preview branch
         run: |
