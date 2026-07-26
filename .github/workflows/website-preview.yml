@@ -24,7 +24,7 @@ jobs:
 
       - name: Download validated website artifact
         env:
-          ARTIFACT_URL: "https://sdmntpritalynorth.oaiusercontent.com/files/00000000-7138-8246-b9b6-dbb51f578c0f/raw?se=2026-07-26T12:34:26Z&sp=r&sv=2026-02-06&sr=b&scid=ffccb1dc-a9f6-512c-a432-db68090724d6&skoid=b32d65cd-c8f1-46fb-90df-c208671889d4&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-07-26T12:02:38Z&ske=2026-07-28T12:02:38Z&sks=b&skv=2026-02-06&sig=y8Yc5Dt7AByjB6XAHh/rFGKKnd7UHpbmgsIpq8Q49oc%3D"
+          ARTIFACT_URL: "https://sdmntprnortheu.oaiusercontent.com/files/00000000-154c-81f4-97f9-5fc0d8be9b38/raw?se=2026-07-26T13:42:29Z&sp=r&sv=2026-02-06&sr=b&scid=2f871ee7-491f-52e6-abcd-3a866776bdd5&skoid=b32d65cd-c8f1-46fb-90df-c208671889d4&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-07-26T09:42:26Z&ske=2026-07-28T09:42:26Z&sks=b&skv=2026-02-06&sig=2dHus99yU6FtbpGdQWsf8kT0i1%2BwqoXg8QCjY%2BTnK7E%3D"
         run: |
           rm -rf /tmp/deus-intus-site
           mkdir -p /tmp/deus-intus-site
