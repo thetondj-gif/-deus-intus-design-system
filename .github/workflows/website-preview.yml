@@ -32,6 +32,29 @@ jobs:
           unzip -q /tmp/deus-intus-site.zip -d /tmp/deus-intus-site
           test -f /tmp/deus-intus-site/index.html
 
+      - name: Remove non-public implementation material
+        run: |
+          rm -rf \
+            /tmp/deus-intus-site/.git \
+            /tmp/deus-intus-site/.github \
+            /tmp/deus-intus-site/content \
+            /tmp/deus-intus-site/docs \
+            /tmp/deus-intus-site/functions \
+            /tmp/deus-intus-site/scripts \
+            /tmp/deus-intus-site/source \
+            /tmp/deus-intus-site/work
+          find /tmp/deus-intus-site -type f \( \
+            -iname '*.md' -o \
+            -iname '*.toml' -o \
+            -iname '*.env' -o \
+            -iname '*.env.*' -o \
+            -iname '*.py' -o \
+            -iname '*.zip' \
+          \) -delete
+          rm -f /tmp/deus-intus-site/_headers /tmp/deus-intus-site/_routes.json
+          test ! -e /tmp/deus-intus-site/implementation-notes.md
+          test ! -d /tmp/deus-intus-site/functions
+
       - name: Adapt links for static CDN hosting
         env:
           PREVIEW_BASE: https://raw.githack.com/thetondj-gif/-deus-intus-design-system/website-preview-site
@@ -76,6 +99,7 @@ jobs:
           test -s /tmp/deus-intus-site/assets/js/site.js
           grep -q 'raw.githack.com/thetondj-gif/-deus-intus-design-system/website-preview-site/assets/css/site.css' /tmp/deus-intus-site/index.html
           ! grep -R -nE 'd="[^"]*"https://raw\.githack' /tmp/deus-intus-site --include='*.html'
+          ! find /tmp/deus-intus-site -type f \( -iname '*.md' -o -iname '*.toml' -o -iname '*.env*' -o -iname '*.py' -o -iname '*.zip' \) -print -quit | grep -q .
 
       - name: Publish isolated preview branch
         run: |
@@ -86,5 +110,5 @@ jobs:
           cp -a /tmp/deus-intus-site/. .
           touch .nojekyll
           git add -A
-          git commit -m "Publish validated Deus Intus website preview"
+          git commit -m "Publish sanitised Deus Intus website preview"
           git push --force origin HEAD:website-preview-site
