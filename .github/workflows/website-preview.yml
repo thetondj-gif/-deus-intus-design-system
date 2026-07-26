@@ -24,7 +24,7 @@ jobs:
 
       - name: Download validated website artifact
         env:
-          ARTIFACT_URL: "https://sdmntprukwest.oaiusercontent.com/files/00000000-eec0-8243-9d21-86ce51ad9df7/raw?se=2026-07-26T12:27:58Z&sp=r&sv=2026-02-06&sr=b&scid=74fb6021-7503-5a98-a813-a3d7047c1bef&skoid=b32d65cd-c8f1-46fb-90df-c208671889d4&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-07-26T12:02:06Z&ske=2026-07-28T12:02:06Z&sks=b&skv=2026-02-06&sig=bBsKs0fs2NX0N8HE2x5EZhy%2BHCx12%2B3ppFboC/1D5D8%3D"
+          ARTIFACT_URL: "https://sdmntprnortheu.oaiusercontent.com/files/00000000-5194-81f4-a163-ed7031bd8352/raw?se=2026-07-26T12:30:59Z&sp=r&sv=2026-02-06&sr=b&scid=1a78e073-532e-5eb3-a5ce-9804571f04cd&skoid=b32d65cd-c8f1-46fb-90df-c208671889d4&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-07-26T08:03:39Z&ske=2026-07-28T08:03:39Z&sks=b&skv=2026-02-06&sig=x9K7bhUjz9CdnC44wjFPunP%2BVlE/XIxOIhkpc/eh3iI%3D"
         run: |
           rm -rf /tmp/deus-intus-site
           mkdir -p /tmp/deus-intus-site
@@ -73,7 +73,7 @@ jobs:
           git config user.name "Deus Intus Preview Bot"
           git config user.email "preview@deusintus.com"
           git switch --orphan website-preview-site
-          git rm -rf .
+          git rm -rf . || true
           cp -a /tmp/deus-intus-site/. .
           touch .nojekyll
           git add -A
