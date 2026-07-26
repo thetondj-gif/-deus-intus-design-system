@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Power Within Morning Ritual · Deus Intus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Lora:ital,wght@0,400;1,400&family=Jura:wght@300;400;600&display=swap" rel="stylesheet">
+<!-- shared design system (Part 0 tokens + di-* components) + print rules -->
+<link rel="stylesheet" href="shared/design-system.css">
+<link rel="stylesheet" href="shared/print-system.css">
+<link rel="stylesheet" href="shared/editorial-v3.css">
+<script src="shared/analytics.js"></script>
+<!-- V3 premium photography (handoff §2): WebP primary + JPG fallback. If the
+     asset is not yet supplied, the CSS hero scrim + gradient background shows
+     (graceful, on-brand). Drop toolkit-homepage-hero.webp / .jpg into assets/images/. -->
+<style>
+/* v003 · Dawn Threshold overrides */
+.di-header::after{content:"";position:absolute;left:50%;bottom:-30px;transform:translateX(-50%);width:560px;height:230px;border-radius:50% 50% 0 0/100% 100% 0 0;background:radial-gradient(ellipse 60% 100% at 50% 100%, rgba(201,162,39,0.22) 0%, rgba(132,215,210,0.10) 48%, transparent 72%);pointer-events:none}
+.di-flame{box-shadow:0 0 26px rgba(132,215,210,0.4), 0 20px 44px -6px rgba(132,215,210,0.28)}
+.di-flame::after{content:"";position:absolute;left:50%;top:64%;transform:translateX(-50%);width:230px;height:115px;border-radius:115px 115px 0 0;border:1px solid rgba(201,162,39,0.3);border-bottom:none;pointer-events:none}
+.rc-eyebrow{font-family:var(--di-font-body);letter-spacing:.34em;text-transform:uppercase;font-size:11px;color:var(--di-aqua);text-align:center;margin-bottom:10px}
+.rc-decree{font-family:var(--di-font-accent);font-style:italic;font-size:15px;color:var(--di-gold-soft);text-align:center;margin:20px 0 4px;padding-top:16px;border-top:1px solid rgba(215,195,138,0.15)}
+.rule-tag{display:block;font-family:var(--di-font-body);text-transform:uppercase;letter-spacing:.3em;font-size:10px;color:var(--di-gold);margin-bottom:6px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.aria-live{color:var(--di-aqua)}
+:focus-visible{outline:2px solid var(--di-aqua);outline-offset:2px}
+@media (prefers-reduced-motion: reduce){ *{animation:none !important;transition:none !important} }
+</style>
+</head>
+<body>
+<div class="wrap no-print">
+
+  <!-- ============ ARRIVAL ============ -->
+  <section class="view active" id="arrival">
+    <div class="v3-hero">
+  <div class="v3-hero-media">
+    <picture>
+      <source srcset="assets/images/morning-ritual-hero.webp" type="image/webp">
+      <img id="mr-hero" src="assets/images/morning-ritual-hero.jpg" alt="A quiet dawn interior, the first light before the day begins" width="1600" height="900" fetchpriority="high" style="width:100%;height:100%;object-fit:cover;object-position:50% 30%">
+    </picture>
+    <div class="v3-hero-scrim"></div>
+  </div>
+  <div class="v3-hero-text">
+    <img class="v3-flame" src="assets/brand/flame-secondary.png" alt="Deus Intus">
+    <div class="v3-eyebrow">Deus Intus · Awaken the Power Within</div>
+    <h1 class="di-title">Power Within<br>Morning Ritual</h1>
+    <p class="di-sub">Command your day before the world commands you.</p>
+  </div>
+</div>
+    <div class="di-progress" id="prog"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <p class="lead">The first hour decides the tone of the rest. Take it back.</p>
+    <div class="nav-row" style="justify-content:center">
+      <button class="btn" data-go="audit">Begin</button>
+    </div>
+  </section>
+
+  <!-- ============ AUDIT ============ -->
+  <section class="view" id="audit">
+    <div class="di-progress" id="prog2"><span class="on"></span><span></span><span></span><span></span><span></span><span></span></div>
+    <p class="section-no">Section I</p>
+    <h2 class="di-title" style="text-align:center;font-size:26px">Where the Morning Is Lost</h2>
+    <div class="q">
+      <label class="q-label">1 · The first 30 minutes</label>
+      <p class="q-text">What does the first 30 minutes of your morning currently look like — honestly?</p>
+      <textarea id="morning_reality" maxlength="240" placeholder="Optional — a sentence or two."></textarea>
+      <span class="count" id="c1">0/240</span>
+    </div>
+    <div class="q">
+      <label class="q-label">2 · Your first energy leak</label>
+      <p class="q-text">Which of these takes your energy first each morning?</p>
+      <select id="energy_leak">
+        <option value="">Choose…</option>
+        <option value="phone_scroll">Phone scroll</option>
+        <option value="other_peoples_demands">Other people's demands</option>
+        <option value="rushing_no_buffer">Rushing, no buffer</option>
+        <option value="mental_noise">Mental noise</option>
+        <option value="low_physical_energy">Low physical energy</option>
+        <option value="no_direction">No clear direction</option>
+      </select>
+    </div>
+    <div class="q">
+      <label class="q-label">3 · How you want to feel</label>
+      <p class="q-text">How do you want to feel by the time the world reaches you?</p>
+      <select id="desired_state">
+        <option value="">Choose…</option>
+        <option value="centred">Centred</option>
+        <option value="clear">Clear</option>
+        <option value="strong">Strong</option>
+        <option value="calm_command">Calm &amp; in command</option>
+        <option value="focused">Focused</option>
+        <option value="grateful_grounded">Grateful &amp; grounded</option>
+      </select>
+    </div>
+    <div class="nav-row">
+      <button class="btn ghost" data-go="arrival">Back</button>
+      <button class="btn" data-go="build" data-validate="audit">Continue</button>
+    </div>
+  </section>
+
+  <!-- ============ BUILD ============ -->
+  <section class="view" id="build">
+    <div class="di-progress" id="prog3"><span class="on"></span><span class="on"></span><span></span><span></span><span></span><span></span></div>
+    <p class="section-no">Section II</p>
+    <h2 class="di-title" style="text-align:center;font-size:26px">The Command Sequence</h2>
+    <div class="q">
+      <label class="q-label">4 · Time you can commit</label>
+      <p class="q-text">How many minutes can you genuinely commit each morning — not ideally, genuinely?</p>
+      <div class="opt-row" id="time_budget">
+        <div class="opt" data-v="5">5 min<div class="opt-sub">The Still Point</div></div>
+        <div class="opt" data-v="15">15 min<div class="opt-sub">The Alignment Sequence</div></div>
+        <div class="opt" data-v="30">30 min<div class="opt-sub">The Full Command</div></div>
+      </div>
+    </div>
+    <div class="q">
+      <label class="q-label">5 · Anchor practices</label>
+      <p class="q-text" id="anchorHint">Choose the practices that belong in your morning.</p>
+      <div class="opt-row" id="anchors">
+        <div class="opt" data-v="stillness_breath">Stillness &amp; breath</div>
+        <div class="opt" data-v="movement">Movement</div>
+        <div class="opt" data-v="cold_water">Cold water</div>
+        <div class="opt" data-v="journaling_one_page">One page of journaling</div>
+        <div class="opt" data-v="reading_study">Reading / study</div>
+        <div class="opt" data-v="intention_setting">Intention setting</div>
+        <div class="opt" data-v="no_phone_hour">No-phone hour</div>
+        <div class="opt" data-v="light_hydration">Light hydration</div>
+      </div>
+    </div>
+    <div class="q">
+      <label class="q-label">6 · Your command phrase</label>
+      <p class="q-text">One line you will say before the day begins.</p>
+      <input type="text" id="command_phrase" maxlength="80" placeholder="Write your own, or choose a suggestion.">
+      <div class="chips" id="phraseChips">
+        <span class="chip">I move first. The world waits.</span>
+        <span class="chip">I return to centre before I rise.</span>
+        <span class="chip">Today answers to me.</span>
+        <span class="chip">Calm is my command.</span>
+        <span class="chip">I choose the day. It does not choose me.</span>
+        <span class="chip">The power I need is already awake.</span>
+      </div>
+    </div>
+    <div class="nav-row">
+      <button class="btn ghost" data-go="audit">Back</button>
+      <button class="btn" data-go="commit" data-validate="build">Continue</button>
+    </div>
+  </section>
+
+  <!-- ============ COMMIT ============ -->
+  <section class="view" id="commit">
+    <div class="di-progress" id="prog4"><span class="on"></span><span class="on"></span><span class="on"></span><span></span><span></span><span></span></div>
+    <p class="section-no">Section III</p>
+    <h2 class="di-title" style="text-align:center;font-size:26px">The Commitment</h2>
+    <div class="q">
+      <label class="q-label">7 · One aligned action</label>
+      <p class="q-text">What is the one aligned action tomorrow that your future self is asking for?</p>
+      <input type="text" id="aligned_action" maxlength="120" placeholder="Be specific. One thing.">
+    </div>
+    <div class="q">
+      <label class="q-label">8 · When it begins</label>
+      <p class="q-text">When does this ritual begin?</p>
+      <input type="date" id="start_date">
+    </div>
+    <div class="nav-row">
+      <button class="btn ghost" data-go="build">Back</button>
+      <button class="btn" data-go="result" data-validate="commit" id="genBtn">Generate my sequence</button>
+    </div>
+  </section>
+
+  <!-- ============ RESULT ============ -->
+  <section class="view" id="result">
+    <div class="di-progress" id="prog5"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span><span></span></div>
+    <p class="section-no">Section IV</p>
+    <h2 class="di-title" style="text-align:center;font-size:26px">Your Morning Command</h2>
+    <div class="di-result-card" id="rc"><!-- filled by JS --></div>
+    <div class="v3-band">
+  <div class="cell"><picture><source srcset="assets/images/morning-ritual-environment.webp" type="image/webp"><img src="assets/images/morning-ritual-environment.jpg" alt="Water and breath — the environmental anchors of the morning" width="640" height="280" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:50% 50%"></picture><div class="cap">Environmental</div></div>
+  <div class="cell"><picture><source srcset="assets/images/morning-ritual-detail.webp" type="image/webp"><img src="assets/images/morning-ritual-detail.jpg" alt="Linen, stone and hands — the quiet detail of a ritual kept" width="400" height="280" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:50% 50%"></picture><div class="cap">Detail</div></div>
+</div>
+    <div class="di-actions no-print">
+      <button class="btn ghost" id="dlPdf">Save or Print PDF</button>
+      <button class="btn ghost" id="dlCard">Save share card</button>
+      <button class="btn ghost" id="dlLock">Lock-screen card</button>
+      <button class="btn ghost" id="dlPdfDark">Dark PDF</button>
+      <button class="btn ghost" id="again">Begin again</button>
+    </div>
+    <form class="di-optin no-print" id="optinForm" novalidate>
+      <p>“Keep the sequence. Never rebuild it from scratch.”</p>
+      <label for="optinEmail" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Your email</label>
+      <input type="email" id="optinEmail" name="email" placeholder="you@email.com" required aria-describedby="optinMsg">
+      <div style="display:flex;align-items:center;gap:8px;justify-content:center;margin-top:12px;font-size:12px;color:rgba(244,240,232,0.7)">
+        <input type="checkbox" id="optinConsent" name="consent" required aria-describedby="optinMsg">
+        <label for="optinConsent">I agree to receive the sequence by email. <a href="privacy.html">Privacy Policy</a></label>
+      </div>
+      <div class="nav-row" style="justify-content:center;margin-top:14px">
+        <button class="btn" id="optinBtn" type="submit">Send me my sequence</button>
+      </div>
+      <p id="optinMsg" class="aria-live" role="status" aria-live="polite" style="margin-top:12px;min-height:18px;font-size:13px"></p>
+      <input type="hidden" name="source" value="morning-ritual">
+      <input type="hidden" name="first_name" id="optinFirst" value="">
+      <input type="hidden" name="utm_source" class="utm-src">
+      <input type="hidden" name="utm_medium" class="utm-med">
+      <input type="hidden" name="utm_campaign" class="utm-camp">
+    </form>
+    <div class="v3-vault no-print" id="vaultPanel"></div>
+    <p class="upgrade no-print">The morning is the doorway. The full work is the house. <a href="deus-intus_weekly-review_app_v003.html?utm_source=toolkit&utm_medium=upgrade&utm_campaign=v3">Begin the deeper rhythm →</a></p>
+  </section>
+
+  <!-- ============ CARRY / FOOTER ============ -->
+  <footer class="footer no-print" id="carry">
+    <div class="f-mark">Deus Intus</div>
+    <div class="f-tag">Awaken the Power Within · @deusintus</div>
+    <p class="f-resp">Deus Intus tools support reflection, discipline and daily practice. They are not therapy, medical or psychological treatment. If you are in distress, seek qualified professional support.</p>
+    <div class="legal" style="margin-top:18px;font-size:11px;letter-spacing:.08em;color:rgba(244,240,232,0.5)">
+      <a href="index.html">← Back to toolkit</a> &nbsp;·&nbsp;
+      <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp;
+      <a href="terms.html">Terms</a> &nbsp;·&nbsp;
+      <a href="#" id="clearData">Clear my saved data</a>
+    </div>
+  </footer>
+</div>
+
+<!-- ============ PRINT WORKBOOK (self-contained, greyscale-safe) ============ -->
+<div class="print-only" id="printBook"></div>
+
+<canvas id="shareCanvas" width="1080" height="1350" style="display:none"></canvas>
+<canvas id="lockCanvas" width="1080" height="1920" style="display:none"></canvas>
+
+<!-- shared tool shell (DI namespace) — available to all toolkit tools -->
+<script src="shared/tool-shell.js"></script>
+<script>
+"use strict";
+const $ = s => document.querySelector(s);
+const LS = "deus_intus_morning_v3";   // V3 namespaced key (handoff §8); legacy di.mr.sequence_v1 still read for migration
+
+/* ---------- navigation ---------- */
+document.querySelectorAll("[data-go]").forEach(b=>{
+  b.addEventListener("click",()=>{
+    if(b.dataset.validate && !validate(b.dataset.validate)) return;
+    if(b.dataset.validate) DI.track('step_completed',{tool:'morning-ritual',step:b.dataset.validate});
+    if(b.dataset.go==="commit") window.__mrStart=Date.now();
+    show(b.dataset.go);
+  });
+});
+function show(id){
+  document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));
+  $("#"+id).classList.add("active");
+  window.scrollTo(0,0);
+}
+function validate(step){
+  if(step==="audit"){
+    if(!$("#energy_leak").value){ flash($("#energy_leak")); return false; }
+    if(!$("#desired_state").value){ flash($("#desired_state")); return false; }
+  }
+  if(step==="build"){
+    if(!sel("time_budget")){ flash($("#time_budget")); return false; }
+    const max = {5:2,15:3,30:5}[+sel("time_budget")];
+    if(selArr("anchors").length < 1){ flash($("#anchors")); return false; }
+    if(selArr("anchors").length > max){ alert("For "+sel("time_budget")+" minutes, choose at most "+max+" anchor practices."); return false; }
+  }
+  if(step==="commit"){
+    if(!$("#aligned_action").value.trim()){ flash($("#aligned_action")); return false; }
+  }
+  return true;
+}
+function flash(el){ el.style.borderColor="var(--di-aqua)"; window.scrollTo({top:el.getBoundingClientRect().top+window.pageYOffset-window.innerHeight/2,behavior:"smooth"}); setTimeout(()=>el.style.borderColor="",1200); }
+function sel(g){ const e=$( "#"+g+" .opt.sel"); return e?e.dataset.v:null; }
+function selArr(g){ return [...document.querySelectorAll("#"+g+" .opt.sel")].map(e=>e.dataset.v); }
+
+/* ---------- option selection ---------- */
+document.querySelectorAll("#time_budget .opt, #anchors .opt").forEach(o=>{
+  o.addEventListener("click",()=>{
+    const group=o.parentElement.id;
+    if(group==="time_budget"){
+      document.querySelectorAll("#time_budget .opt").forEach(x=>x.classList.remove("sel"));
+      o.classList.add("sel"); updateAnchorHint();
+    } else {
+      const max={5:2,15:3,30:5}[+sel("time_budget")]||5;
+      if(!o.classList.contains("sel") && selArr("anchors").length>=max){ alert("Max "+max+" practices for this time budget."); return; }
+      o.classList.toggle("sel");
+    }
+  });
+});
+function updateAnchorHint(){
+  const t=sel("time_budget"); const max={5:2,15:3,30:5}[+t];
+  if(t) $("#anchorHint").textContent="Choose up to "+max+" practices that belong in your morning.";
+}
+/* phrase chips */
+document.querySelectorAll("#phraseChips .chip").forEach(c=>{
+  c.addEventListener("click",()=>{ $("#command_phrase").value=c.textContent; });
+});
+/* char counters */
+$("#morning_reality").addEventListener("input",e=>$("#c1").textContent=e.target.value.length+"/240");
+
+/* ---------- default start date = tomorrow ---------- */
+(function(){ const d=new Date(); d.setDate(d.getDate()+1);
+  $("#start_date").value=d.toISOString().split("T")[0]; })();
+
+/* ---------- generation logic (blueprint §9) ---------- */
+const WEIGHTS={stillness_breath:30,movement:25,journaling_one_page:20,reading_study:15,intention_setting:10};
+const STANDING=["no_phone_hour","light_hydration","cold_water"];
+const ANCHOR_NAME={stillness_breath:"Stillness & breath",movement:"Movement",cold_water:"Cold water",
+  journaling_one_page:"One page",reading_study:"Reading / study",intention_setting:"Intention",
+  no_phone_hour:"No-phone hour",light_hydration:"Light hydration"};
+const ANCHOR_INS={
+  stillness_breath:"Sit. Spine tall. Six slow breaths per minute. Nothing to solve yet.",
+  movement:"Wake the body before the mind negotiates.",
+  cold_water:"Cold water on the face. A hard reset for the nervous system.",
+  journaling_one_page:"Empty the noise onto paper. Close the book.",
+  reading_study:"A page of something that raises you. No feed, no news.",
+  intention_setting:"Speak your command phrase aloud. Name the aligned action.",
+  no_phone_hour:"The phone stays out of the room until the sequence ends.",
+  light_hydration:"Water before coffee. The body has been fasting all night."
+};
+const LEAK={
+  phone_scroll:"Phone stays outside the room until the sequence ends.",
+  other_peoples_demands:"No inputs before output. You speak to yourself first.",
+  rushing_no_buffer:"The sequence starts 20 minutes before you think you need it.",
+  mental_noise:"One page. Empty the noise onto paper, not into the day.",
+  low_physical_energy:"Movement and water before any decision.",
+  no_direction:"The aligned action is chosen the night before. Never at dawn."
+};
+const STATE_LINE={
+  centred:"You are not chasing the day. You are receiving it from centre.",
+  clear:"Clarity is a decision you make before the noise begins.",
+  strong:"Strength is not force. It is being unmoved by the first demand.",
+  calm_command:"Calm is the command. Everything else follows it.",
+  focused:"One thing at a time. The day narrows to what matters.",
+  grateful_grounded:"Gratitude is ground. Stand on it before you move."
+};
+const TEMPLATE={5:"The Still Point",15:"The Alignment Sequence",30:"The Full Command"};
+
+function allocate(time, chosen){
+  const timed=chosen.filter(a=>WEIGHTS[a]);
+  const totalW=timed.reduce((s,a)=>s+WEIGHTS[a],0);
+  let blocks=timed.map(a=>({anchor:a, raw:time*WEIGHTS[a]/totalW}));
+  // round to int, min 1, fix sum
+  let alloc=blocks.map(b=>({anchor:b.anchor, minutes:Math.max(1,Math.round(b.raw))}));
+  let diff=time-alloc.reduce((s,b)=>s+b.minutes,0);
+  // adjust largest-first
+  alloc.sort((a,b)=>b.minutes-a.minutes);
+  let i=0; while(diff!==0){ const k=diff>0?i:i; alloc[k].minutes+=diff>0?1:-1; diff+=diff>0?-1:1; i=(i+1)%alloc.length; if(i===0&&Math.abs(diff)<alloc.length)break; }
+  alloc.sort((a,b)=>timed.indexOf(a.anchor)-timed.indexOf(b.anchor));
+  return alloc;
+}
+
+function generate(){
+  const time=+sel("time_budget");
+  const chosen=selArr("anchors");
+  const template=TEMPLATE[time];
+  const blocks=allocate(time,chosen);
+  const standing=chosen.filter(a=>STANDING.includes(a)).map(a=>ANCHOR_INS[a]);
+  const leakLine=LEAK[$("#energy_leak").value];
+  const stateLine=STATE_LINE[$("#desired_state").value];
+  const phrase=$("#command_phrase").value.trim()||"Today answers to me.";
+  const action=$("#aligned_action").value.trim();
+  const dateStr=fmtDate($("#start_date").value);
+
+  const result={template,time,blocks,standing,leakLine,stateLine,phrase,action,dateStr};
+  localStorage.setItem(LS, JSON.stringify(result));
+  renderResult(result);
+  DI.track('tool_completed',{tool:'morning-ritual',completion_ms:Date.now()-(window.__mrStart||Date.now())});
+  return result;
+}
+function fmtDate(v){ if(!v)return""; const d=new Date(v+"T00:00:00"); return d.toLocaleDateString("en-GB",{weekday:"long",day:"numeric",month:"long"}); }
+
+function renderResult(r){
+  const blocksHtml=r.blocks.map(b=>`<div class="block"><div class="min">${b.minutes}</div>
+    <div class="body"><div class="b-name">${ANCHOR_NAME[b.anchor]}</div>
+    <div class="b-ins">${ANCHOR_INS[b.anchor]}</div></div></div>`).join("");
+  const standingHtml=r.standing.length?`<ul class="standing">${r.standing.map(s=>`<li>${s}</li>`).join("")}</ul>`:"";
+  $("#rc").innerHTML=`
+    <div class="rc-eyebrow">Your Morning Command Sequence</div>
+    <h2>${r.template.toUpperCase()} — ${r.time} MINUTES</h2>
+    <p class="state-line">${r.stateLine}</p>
+    <div class="rule-line"><span class="rule-tag">The Standing Rule</span>${r.leakLine}</div>
+    ${blocksHtml}
+    ${standingHtml}
+    <div class="meta-grid">
+      <div><div class="k">Command phrase</div><div class="v">“${r.phrase}”</div></div>
+      <div><div class="k">Today's aligned action</div><div class="v">${r.action}</div></div>
+      <div style="grid-column:1/-1"><div class="k">First morning</div><div class="v">${r.dateStr}</div></div>
+    </div>
+    <p class="rc-decree">This is not a suggestion. It is the sequence you run tomorrow.</p>`;
+  buildPrintBook(r);
+  show("result");
+}
+
+/* ---------- print workbook (premium 8-page structure) ---------- */
+const EDITION = "Edition III · v003";
+function buildPrintBook(r){
+  const rows=r.blocks.map(b=>`<tr><td class="chk"></td><td><b>${ANCHOR_NAME[b.anchor]}</b> — ${b.minutes} min</td><td>${ANCHOR_INS[b.anchor]}</td></tr>`).join("");
+  const standing=r.standing.map(s=>`<li>${s}</li>`).join("");
+  const days=["M","T","W","T","F","S","S"];
+  $("#printBook").innerHTML=`
+  <div class="pp cover">
+    <div class="c-title">POWER WITHIN<br>MORNING RITUAL</div>
+    <div class="c-sub">Your Morning Command Sequence</div>
+    <div class="c-hero">“${r.phrase}”</div>
+    <div class="c-date">${r.dateStr.toUpperCase()}</div>
+    <div class="c-edition">${EDITION} · DEUS INTUS</div>
+  </div>
+
+  <div class="pp">
+    <div class="pp-edition">${EDITION}</div>
+    <p class="pp-kicker">How to use this workbook</p>
+    <h2 class="pp-title">Begin before the world begins</h2>
+    <hr class="pp-rule">
+    <p class="pp-lead">This is not a journal to admire. It is a sequence to run. Fill the result page from the app, then live it for seven mornings.</p>
+    <ol class="p-steps">
+      <li>Run the app and generate your ${r.template} (${r.time} min). The result lands on the next page.</li>
+      <li>Each morning: open to the worksheet, tick the practices as they happen.</li>
+      <li>When the old morning tries to return, write it in the reflection page — name it, don't fight it.</li>
+      <li>Use the 7-Day Tracker to prove the streak to yourself. A tick is a promise kept.</li>
+      <li>At the week's end, return to the reflection page and adjust. Tighter or deeper — your call.</li>
+    </ol>
+    <div class="p-callout">“The first hour decides the tone of the rest. Take it back.”</div>
+    <div class="pp-foot"><span class="ff-tag">DEUS INTUS — Awaken the Power Within · @deusintus</span><div class="ff-resp">A reflection tool, not therapy. Not a substitute for professional medical or psychological care.</div></div>
+  </div>
+
+  <div class="pp">
+    <div class="pp-edition">${EDITION}</div>
+    <p class="pp-kicker">Your sequence</p>
+    <h2 class="pp-title">${r.template} · ${r.time} minutes</h2>
+    <hr class="pp-rule">
+    <p style="font-family:var(--di-font-accent);font-style:italic;margin-bottom:6px">${r.stateLine}</p>
+    <p style="color:#444;margin-bottom:14px"><b>Standing rule:</b> ${r.leakLine}</p>
+    <table class="p-table"><tr><th class="chk"></th><th>Practice</th><th>Instruction</th></tr>${rows}</table>
+    ${standing?`<p style="margin-top:10px"><b>Standing rules:</b></p><ul style="font-size:13px">${standing}</ul>`:""}
+    <div class="meta-print" style="margin-top:16px;font-size:12px;color:#333">Command phrase: <b>“${r.phrase}”</b> · Aligned action: <b>${r.action}</b></div>
+    <div class="pp-foot"><span class="ff-tag">DEUS INTUS — Awaken the Power Within · @deusintus</span></div>
+  </div>
+
+  <div class="pp">
+    <div class="pp-edition">${EDITION}</div>
+    <p class="pp-kicker">Printable worksheet</p>
+    <h2 class="pp-title">The Command Sheet</h2>
+    <hr class="pp-rule">
+    <p class="pp-lead">Tick each practice as it happens. Note the time you began.</p>
+    <table class="p-table"><tr><th class="chk">✓</th><th>Practice</th><th>Instruction</th></tr>${rows}</table>
+    <div style="margin-top:18px;font-size:13px">Began at: ____________ &nbsp;&nbsp; Ended at: ____________ &nbsp;&nbsp; Energy before: __ /5 &nbsp; after: __ /5</div>
+    <div class="pp-foot"><span class="ff-tag">DEUS INTUS — Awaken the Power Within · @deusintus</span></div>
+  </div>
+
+  <div class="pp">
+    <div class="pp-edition">${EDITION}</div>
+    <p class="pp-kicker">Reflection</p>
+    <h2 class="pp-title">What the week revealed</h2>
+    <hr class="pp-rule">
+    <div class="refl">
+      <div class="rp">What changed when you moved first — before the phone, before the demands?</div>
+      <div class="rp">Where did the old morning try to return? Name the exact moment.</div>
+      <div class="rp">What does the sequence need next week — tighter, or deeper?</div>
+      <div class="rp">One line you would hand to a friend who says they "aren't a morning person."</div>
+    </div>
+    <div class="p-callout">“Calm is the command. Everything else follows it.”</div>
+    <div class="pp-foot"><span class="ff-tag">DEUS INTUS — Awaken the Power Within · @deusintus</span></div>
+  </div>
+
+  <div class="pp">
+    <div class="pp-edition">${EDITION}</div>
+    <p class="pp-kicker">7-Day tracking</p>
+    <h2 class="pp-title">The Seven-Day Proof</h2>
+    <hr class="pp-rule">
+    <p class="pp-lead">Tick the day your sequence ran in full. Seven ticks is a new standard, not a streak.</p>
+    <div class="track">${days.map(()=>'<div></div>').join("")}</div>
+    <div class="track-labels">${days.map(d=>`<span>${d}</span>`).join("")}</div>
+    <div style="margin-top:22px;font-size:12px;color:#444">Week notes: ________________________________________________________________</div>
+    <div class="pp-foot"><span class="ff-tag">DEUS INTUS — Awaken the Power Within · @deusintus</span></div>
+  </div>
+
+  <div class="pp pp-divider">
+    <div class="d-mark">Deus Intus</div>
+    <div class="d-line">The morning is the doorway.<br>The full work is the house.</div>
+    <div class="d-sub">Continue the practice in the Self-Mastery Journal.</div>
+  </div>
+
+  <div class="pp pp-cta">
+    <div class="cta-mark">Deus Intus</div>
+    <div class="cta-title">Turn the Ritual Into a Standard</div>
+    <div class="cta-lead">The free tool gives you the sequence. The journal gives you the structure to keep it.</div>
+    <div class="cta-box">
+      <div class="b-name">The Deus Intus Self-Mastery Journal</div>
+      <div class="b-sub">90 days of morning command · printed, premium, yours</div>
+      <div class="b-step">1 · Download your sequence as a PDF from this tool.</div>
+      <div class="b-step">2 · Join the practice at @deusintus for the weekly send.</div>
+      <div class="b-step">3 · Begin tomorrow. Not ideally — genuinely.</div>
+    </div>
+    <div class="cta-foot">Awaken the Power Within · @deusintus · ${EDITION}</div>
+  </div>`;
+}
+
+/* ---------- share card (canvas, no SVG) ---------- */
+function drawShareCard(r){
+  const c=$("#shareCanvas"), x=c.getContext("2d"); const W=1080,H=1350;
+  const bg=x.createLinearGradient(0,0,0,H);
+  bg.addColorStop(0,"#050A12"); bg.addColorStop(0.62,"#0B213A"); bg.addColorStop(1,"#123243");
+  x.fillStyle=bg; x.fillRect(0,0,W,H);
+  const gl=x.createRadialGradient(540,1180,60,540,1180,560);
+  gl.addColorStop(0,"rgba(132,215,210,0.16)"); gl.addColorStop(1,"rgba(132,215,210,0)");
+  x.fillStyle=gl; x.fillRect(0,600,W,750);
+  x.strokeStyle="rgba(201,162,39,0.55)"; x.lineWidth=2;
+  x.beginPath(); x.arc(540,1500,560,Math.PI*1.15,Math.PI*1.85); x.stroke();
+  const g=x.createRadialGradient(540,150,4,540,150,44);
+  g.addColorStop(0,"#84D7D2"); g.addColorStop(1,"rgba(132,215,210,0)");
+  x.fillStyle=g; x.beginPath(); x.ellipse(540,150,30,42,0,0,7); x.fill();
+  x.fillStyle="#C9A227"; x.font="600 40px Jura, sans-serif"; x.textAlign="center";
+  x.fillText("DEUS INTUS",540,250);
+  x.fillStyle="#D7C38A"; x.font="300 40px Jura, sans-serif";
+  x.fillText("MY MORNING COMMAND SEQUENCE",540,340);
+  x.fillStyle="#F7F4EE"; x.font="italic 64px Lora, serif";
+  wrapText(x,"\u201C"+r.phrase+"\u201D",540,620,860,76);
+  x.strokeStyle="rgba(201,162,39,0.5)"; x.lineWidth=1;
+  x.beginPath(); x.moveTo(340,860); x.lineTo(740,860); x.stroke();
+  x.fillStyle="#C9A227"; x.font="400 44px Jura, sans-serif";
+  x.fillText(r.template.toUpperCase()+" \u00B7 "+r.time+" MINUTES",540,940);
+  if(r.dateStr){ x.fillStyle="#F7F4EE"; x.font="300 40px Jura, sans-serif";
+    x.fillText("FIRST MORNING \u00B7 "+r.dateStr.toUpperCase(),540,1020); }
+  x.fillStyle="#84D7D2"; x.font="300 40px Jura, sans-serif";
+  x.fillText("@deusintus",540,1220);
+}
+function wrapText(x,t,cx,cy,maxW,lh){
+  const words=t.split(" "); let line="",yy=cy; const lines=[];
+  words.forEach(w=>{ const t2=line?line+" "+w:w; if(x.measureText(t2).width>maxW){ lines.push(line); line=w; } else line=t2; });
+  if(line)lines.push(line);
+  const start=cy-((lines.length-1)*lh)/2;
+  lines.forEach((l,i)=>x.fillText(l,cx,start+i*lh));
+}
+
+/* ---------- actions ---------- */
+$("#genBtn").addEventListener("click",()=>{ DI.track('tool_started',{tool:'morning-ritual'}); generate(); });
+$("#dlPdf").addEventListener("click",()=>{ DI.track('pdf_opened',{tool:'morning-ritual',variant:'light'}); window.print(); });
+$("#dlPdfDark").addEventListener("click",()=>{ DI.track('pdf_opened',{tool:'morning-ritual',variant:'dark'}); document.body.classList.add("pp-dark"); window.print(); setTimeout(()=>document.body.classList.remove("pp-dark"),500); });
+$("#dlCard").addEventListener("click",()=>{
+  const r=JSON.parse(localStorage.getItem(LS)); if(!r)return;
+  drawShareCard(r);
+  const a=document.createElement("a");
+  a.download="deus-intus_morning-ritual_share-card_v003.png";
+  a.href=$("#shareCanvas").toDataURL("image/png"); a.click();
+  DI.track('share_card_downloaded',{tool:'morning-ritual'});
+});
+$("#dlLock").addEventListener("click",()=>{
+  const r=JSON.parse(localStorage.getItem(LS)); if(!r)return;
+  drawLock(r);
+  const a=document.createElement("a");
+  a.download="deus-intus_morning-ritual_lock-screen_v003.png";
+  a.href=$("#lockCanvas").toDataURL("image/png"); a.click();
+  DI.track('lockscreen_downloaded',{tool:'morning-ritual'});
+});
+$("#again").addEventListener("click",()=>{ localStorage.removeItem(LS); show("arrival");
+  document.querySelectorAll(".opt.sel").forEach(o=>o.classList.remove("sel"));
+  document.querySelectorAll("input,textarea,select").forEach(i=>{ if(i.type!=="date")i.value=""; });
+  $("#morning_reality").dispatchEvent(new Event("input")); });
+
+/* ---------- email opt-in (handoff §3): posts to configurable endpoint, no keys in client ---------- */
+(function(){
+  const form=$("#optinForm"); if(!form) return;
+  const msg=$("#optinMsg"); const emailEl=$("#optinEmail"); const consentEl=$("#optinConsent");
+  const ENDPOINT = (window.DI && window.DI.EMAIL_ENDPOINT) || "";   // set to your n8n/MailerLite/Worker URL
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  function fillUtm(){ document.querySelectorAll(".utm-src,.utm-med,.utm-camp").forEach(function(h){}); }
+  function utm(name){ return new URLSearchParams(location.search).get(name) || ""; }
+  form.querySelectorAll(".utm-src").forEach(e=>e.value=utm("utm_source"));
+  form.querySelectorAll(".utm-med").forEach(e=>e.value=utm("utm_medium"));
+  form.querySelectorAll(".utm-camp").forEach(e=>e.value=utm("utm_campaign"));
+  form.addEventListener("submit", function(ev){
+    ev.preventDefault();
+    msg.style.color="var(--di-gold-soft)";
+    if(!EMAIL_RE.test(emailEl.value)){ msg.textContent="Please enter a valid email."; emailEl.focus(); return; }
+    if(!consentEl.checked){ msg.textContent="Please confirm consent to receive email."; consentEl.focus(); return; }
+    const btn=form.querySelector("#optinBtn"); btn.disabled=true; btn.textContent="Sending…";
+    const payload={ email:emailEl.value, first_name:"", source:"morning-ritual", consent:true,
+      utm_source:utm("utm_source"), utm_medium:utm("utm_medium"), utm_campaign:utm("utm_campaign") };
+    const done=function(ok, text){ btn.disabled=false; btn.textContent="Send me my sequence"; msg.textContent=text;
+      msg.style.color = ok ? "var(--di-aqua)" : "var(--di-gold-soft)";
+      if(ok) DI.track('email_submitted',{tool:'morning-ritual',dup:false}); };
+    if(!ENDPOINT){ done(true,"Thank you — your sequence and a weekly practice will arrive. (Endpoint not configured: connect in README_DEPLOY.md)"); return; }
+    fetch(ENDPOINT, { method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(payload) })
+      .then(function(r){ return r.ok ? done(true,"Thank you — your sequence and a weekly practice will arrive at "+emailEl.value+".") : done(false,"Something went wrong. Please try again."); })
+      .catch(function(){ done(false,"Network error. Please try again."); });
+  });
+})();
+
+/* ---------- clear saved data (handoff §8) ---------- */
+(function(){ const cd=$("#clearData"); if(!cd) return; cd.addEventListener("click", function(e){ e.preventDefault(); DI.clearAllData(); alert("Your saved Deus Intus data on this device has been cleared."); DI.track('data_cleared',{scope:'all'}); }); })();
+
+/* ---------- restore ---------- */
+(function(){ const saved=localStorage.getItem(LS); if(saved){ try{ renderResult(JSON.parse(saved)); DI.track('returning_user_detected',{tool:'morning-ritual'}); }catch(e){} } })();
+</script>
+<script src="shared/vault-v3.js"></script>
+<script>
+(function(){
+"use strict";
+var Q=function(s){return document.querySelector(s)};
+function cur(){ try{ return JSON.parse(localStorage.getItem("deus_intus_morning_v3")) || JSON.parse(localStorage.getItem("di.mr.sequence_v1")); }catch(e){ return null; } }
+function refreshVault(){ var el=Q("#vaultPanel"); if(el) DIVault.renderPanel(el, "mr", {patternField:"leakLine", patternLabel:"The morning keeps being lost the same way"}); }
+var gen=Q("#genBtn");
+if(gen) gen.addEventListener("click", function(){ setTimeout(function(){ var r=cur(); if(!r) return;
+  DIVault.record("mr", { summary: r.template + " \u00B7 \u201C" + r.phrase + "\u201D", leakLine: r.leakLine });
+  refreshVault(); }, 80); }, true);
+var flameImg=new Image(); flameImg.src="assets/brand/flame-secondary.png";
+function drawLock(r){
+  var c=Q("#lockCanvas"), x=c.getContext("2d");
+  x.fillStyle="#0A0D12"; x.fillRect(0,0,1080,1920);
+  x.strokeStyle="rgba(184,150,59,0.5)"; x.lineWidth=1;
+  x.beginPath(); x.moveTo(140,320); x.lineTo(940,320); x.stroke();
+  x.beginPath(); x.moveTo(140,1600); x.lineTo(940,1600); x.stroke();
+  if(flameImg.complete && flameImg.naturalWidth){ var w=220, hh=w*flameImg.naturalHeight/flameImg.naturalWidth; x.globalAlpha=0.95; x.drawImage(flameImg, 540-w/2, 380, w, hh); x.globalAlpha=1; }
+  var lines=["MORNING COMMAND", "\u201C" + r.phrase + "\u201D", r.template.toUpperCase() + " \u00B7 " + r.time + " MIN"];
+  x.textAlign="center";
+  x.fillStyle="#B8963B"; x.font="300 40px Jura, sans-serif"; x.fillText("DEUS INTUS",540,250);
+  x.fillStyle="rgba(233,228,218,0.75)"; x.font="300 36px Jura, sans-serif"; x.fillText(lines[0],540,700);
+  x.fillStyle="#F4F0E8"; x.font="italic 58px Lora, serif";
+  (function(){ var words=String(lines[1]).split(" "), line="", out=[];
+    words.forEach(function(w){ var t2=line?line+" "+w:w; if(x.measureText(t2).width>820){ out.push(line); line=w; } else line=t2; });
+    if(line) out.push(line); var start=980-((out.length-1)*72)/2;
+    out.forEach(function(l,i){ x.fillText(l,540,start+i*72); }); })();
+  x.fillStyle="#B8963B"; x.font="400 38px Jura, sans-serif"; x.fillText(lines[2],540,1420);
+  x.fillStyle="#7FC4BF"; x.font="300 34px Jura, sans-serif"; x.fillText("@deusintus",540,1700);
+}
+var lockBtn=Q("#dlLock");
+if(lockBtn) lockBtn.addEventListener("click", function(){ var r=cur(); if(!r) return; drawLock(r);
+  var a=document.createElement("a"); a.download="deus-intus_mr_lock-screen_v003.png"; a.href=Q("#lockCanvas").toDataURL("image/png"); a.click(); });
+var darkBtn=Q("#dlPdfDark");
+if(darkBtn) darkBtn.addEventListener("click", function(){ document.body.classList.add("pp-dark"); window.print(); setTimeout(function(){ document.body.classList.remove("pp-dark"); }, 500); });
+refreshVault();
+})();
+</script>
+</body>
+</html>

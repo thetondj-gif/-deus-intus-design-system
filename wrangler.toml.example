@@ -1,0 +1,12 @@
+name = "deus-intus-site"
+compatibility_date = "2026-07-01"
+pages_build_output_dir = "."
+
+# Optional KV bindings. Use these instead of webhooks if preferred.
+# [[kv_namespaces]]
+# binding = "SUBSCRIBERS"
+# id = "YOUR_KV_NAMESPACE_ID"
+#
+# [[kv_namespaces]]
+# binding = "CONTACT_MESSAGES"
+# id = "YOUR_KV_NAMESPACE_ID"

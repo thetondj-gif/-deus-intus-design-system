@@ -1,0 +1,17 @@
+{
+  "status": "locked",
+  "count": 10,
+  "rule": "An approved campaign colour may only be used when it is present in the featured product's CSV/source specification.",
+  "colourways": [
+    "Black",
+    "White",
+    "Grey",
+    "Navy",
+    "Slate Grey",
+    "Stone Blue",
+    "Light Blue",
+    "Sunset Pink",
+    "Seagrass Green",
+    "Evergreen"
+  ]
+}

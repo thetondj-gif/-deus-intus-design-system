@@ -1,0 +1,41 @@
+{
+  "edition": "Edition III (v003)",
+  "note": "Authoritative image map. The deployable package includes the JPG files used by the toolkit launcher and three tools. Optional WebP variants may be added later without changing the HTML.",
+  "paths": {
+    "morning_ritual": [
+      "assets/images/morning-ritual-hero.webp",
+      "assets/images/morning-ritual-hero.jpg",
+      "assets/images/morning-ritual-environment.webp",
+      "assets/images/morning-ritual-environment.jpg",
+      "assets/images/morning-ritual-detail.webp",
+      "assets/images/morning-ritual-detail.jpg"
+    ],
+    "protect_your_peace": [
+      "assets/images/protect-your-peace-hero.webp",
+      "assets/images/protect-your-peace-hero.jpg",
+      "assets/images/protect-your-peace-environment.webp",
+      "assets/images/protect-your-peace-environment.jpg",
+      "assets/images/protect-your-peace-detail.webp",
+      "assets/images/protect-your-peace-detail.jpg"
+    ],
+    "weekly_review": [
+      "assets/images/weekly-review-hero.webp",
+      "assets/images/weekly-review-hero.jpg",
+      "assets/images/weekly-review-environment.webp",
+      "assets/images/weekly-review-environment.jpg",
+      "assets/images/weekly-review-detail.webp",
+      "assets/images/weekly-review-detail.jpg"
+    ],
+    "shared": [
+      "assets/images/toolkit-homepage-hero.webp",
+      "assets/images/toolkit-homepage-hero.jpg",
+      "assets/images/social-hero-4x5.webp",
+      "assets/images/social-hero-9x16.webp",
+      "assets/images/share-card-bg-4x5.webp",
+      "assets/images/share-card-bg-9x16.webp",
+      "assets/images/flame-mark-aqua-glow.webp",
+      "assets/images/brand-watermark.webp"
+    ]
+  },
+  "drop_instructions": "Keep the included JPG fallbacks. Add matching WebP variants at the listed paths when further image optimisation is required."
+}

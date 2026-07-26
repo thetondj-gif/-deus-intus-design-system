@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deus Intus · Self-Mastery Toolkit — Edition III</title>
+<meta name="description" content="Awaken the Power Within. Three premium self-mastery tools: Morning Ritual, Protect Your Peace, Weekly Review.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Lora:ital,wght@0,400;1,400&family=Jura:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared/design-system.css">
+<link rel="stylesheet" href="shared/editorial-v3.css">
+<script src="shared/analytics.js"></script>
+<style>
+a{color:var(--di-aqua)} a:hover{color:var(--di-gold)}
+.tools{display:grid;gap:16px;margin:36px 0 48px}
+.tool{display:block;text-decoration:none;background:transparent;border-top:1px solid rgba(184,150,59,0.45);border-radius:0;padding:32px 0;transition:opacity .3s}
+.tool:hover{opacity:0.8}
+.tool .tn{font-family:var(--di-font-display);font-size:26px;color:var(--di-ivory)}
+.tool .tt{font-family:var(--di-font-accent);font-style:italic;font-size:14px;color:var(--di-gold-soft);margin-top:6px}
+.tool .tv{font-family:var(--di-font-body);letter-spacing:.28em;text-transform:uppercase;font-size:10px;color:var(--di-aqua);margin-top:12px}
+.legal{margin-top:48px;padding-top:24px;border-top:1px solid var(--di-aqua);text-align:center;font-size:11px;letter-spacing:.08em;color:rgba(244,240,232,0.5)}
+.legal a{color:var(--di-aqua);text-decoration:none}
+.legal a:hover{color:var(--di-gold)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="v3-hero">
+  <div class="v3-hero-media">
+    <picture>
+      <source srcset="assets/images/toolkit-homepage-hero.webp" type="image/webp">
+      <img src="assets/images/toolkit-homepage-hero.jpg" alt="Deus Intus — the threshold of self-mastery" width="1600" height="900" fetchpriority="high" style="width:100%;height:100%;object-fit:cover;object-position:50% 30%">
+    </picture>
+    <div class="v3-hero-scrim"></div>
+  </div>
+  <div class="v3-hero-text">
+    <img class="v3-flame" src="assets/brand/flame-secondary.png" alt="Deus Intus">
+    <div class="v3-eyebrow">Deus Intus · Awaken the Power Within</div>
+    <h1 class="di-title">Self-Mastery<br>Toolkit</h1>
+    <p class="di-sub">Edition III · v003</p>
+  </div>
+</div>
+  <div class="tools">
+    <a class="tool" href="deus-intus_morning-ritual_app_v003.html?utm_source=toolkit&utm_medium=home&utm_campaign=v3">
+      <div class="tn">Power Within Morning Ritual</div>
+      <div class="tt">Command your day before the world commands you.</div>
+      <div class="tv">v003 · Dawn Threshold</div>
+    </a>
+    <a class="tool" href="deus-intus_boundary-builder_app_v003.html?utm_source=toolkit&utm_medium=home&utm_campaign=v3">
+      <div class="tn">Protect Your Peace</div>
+      <div class="tt">A boundary is not a wall. It is a definition of where your energy goes.</div>
+      <div class="tv">v003 · Threshold Lines</div>
+    </a>
+    <a class="tool" href="deus-intus_weekly-review_app_v003.html?utm_source=toolkit&utm_medium=home&utm_campaign=v3">
+      <div class="tn">Weekly Self-Mastery Review</div>
+      <div class="tt">Score the week. Name the pattern. Command the next one.</div>
+      <div class="tv">v003 · Sovereignty Scorecard</div>
+    </a>
+  </div>
+  <footer class="footer">
+    <div class="f-mark">Deus Intus</div>
+    <div class="f-tag">Awaken the Power Within · @deusintus</div>
+    <div class="legal">
+      <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms.html">Terms</a> &nbsp;·&nbsp; <a href="#" id="clearData">Clear my saved data</a>
+    </div>
+  </footer>
+</div>
+<script>
+  // Toolkit-level analytics + clear-data control
+  (function(){
+    function track(ev, data){ if(window.DI && DI.track) DI.track(ev, data); }
+    track('toolkit_view', { page:'index', edition:'v3' });
+    document.querySelectorAll('.tool').forEach(function(a){
+      a.addEventListener('click', function(){
+        track('tool_open', { tool: a.querySelector('.tn').textContent.trim(), source:'toolkit_home' });
+      });
+    });
+    var cd = document.getElementById('clearData');
+    if(cd) cd.addEventListener('click', function(e){
+      e.preventDefault();
+      ['deus_intus_morning_v3','deus_intus_boundary_v3','deus_intus_weekly_v3','deus_intus_vault_v3','di.mr.sequence_v1','di.bb.card_v1','di.wr.card_latest','di.wr.history','di.vault.v3']
+        .forEach(function(k){ try{ localStorage.removeItem(k); }catch(e){} });
+      alert('Your saved Deus Intus data on this device has been cleared.');
+      track('data_cleared', { scope:'all' });
+    });
+  })();
+</script>
+</body>
+</html>

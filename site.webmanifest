@@ -1,0 +1,20 @@
+{
+  "name": "Deus Intus",
+  "short_name": "Deus Intus",
+  "start_url": "https://raw.githack.com/thetondj-gif/-deus-intus-design-system/website-preview-site/",
+  "display": "standalone",
+  "background_color": "#05080c",
+  "theme_color": "#05080c",
+  "icons": [
+    {
+      "src": "https://raw.githack.com/thetondj-gif/-deus-intus-design-system/website-preview-site/assets/images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://raw.githack.com/thetondj-gif/-deus-intus-design-system/website-preview-site/assets/images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
