@@ -1,0 +1,144 @@
+:root,
+[data-deus-system="core-obsidian"] {
+  --di-bg: #080A0F;
+  --di-surface: #101620;
+  --di-surface-raised: #17202C;
+  --di-text: #F4EFE4;
+  --di-text-muted: #B8AE9D;
+  --di-accent: #C8A45D;
+  --di-accent-2: #33D6C5;
+  --di-depth: #1B2A55;
+}
+
+[data-deus-system="luminous-ivory"] {
+  --di-bg: #F7F1E6;
+  --di-surface: #FFF9EF;
+  --di-surface-raised: #EFE3CF;
+  --di-text: #17130E;
+  --di-text-muted: #6F6251;
+  --di-accent: #B88A3B;
+  --di-accent-2: #111827;
+  --di-depth: #BFE8E2;
+}
+
+[data-deus-system="dawn-sage"] {
+  --di-bg: #E9E5D8;
+  --di-surface: #F6F1E8;
+  --di-surface-raised: #D7D4C2;
+  --di-text: #18221C;
+  --di-text-muted: #65705F;
+  --di-accent: #7C8B6F;
+  --di-accent-2: #B79A58;
+  --di-depth: #243529;
+}
+
+[data-deus-system="solar-altar"] {
+  --di-bg: #1A120B;
+  --di-surface: #2A1D12;
+  --di-surface-raised: #3B2A19;
+  --di-text: #FFF4DE;
+  --di-text-muted: #D7BE91;
+  --di-accent: #E2B75D;
+  --di-accent-2: #B85C38;
+  --di-depth: #F4E0BA;
+}
+
+[data-deus-system="celestial-teal"] {
+  --di-bg: #06151A;
+  --di-surface: #0C242B;
+  --di-surface-raised: #12343D;
+  --di-text: #ECF8F6;
+  --di-text-muted: #A8C8C4;
+  --di-accent: #38DCC8;
+  --di-accent-2: #C9A65E;
+  --di-depth: #10172A;
+}
+
+[data-deus-system="rose-ember"] {
+  --di-bg: #241316;
+  --di-surface: #351F23;
+  --di-surface-raised: #4A2D31;
+  --di-text: #FFF2EC;
+  --di-text-muted: #D9BEB5;
+  --di-accent: #C77B72;
+  --di-accent-2: #F0C9BC;
+  --di-depth: #C8A45D;
+}
+
+[data-deus-system="monastic-stone"] {
+  --di-bg: #EDE8DC;
+  --di-surface: #F9F4EA;
+  --di-surface-raised: #D8D0C0;
+  --di-text: #1A1A17;
+  --di-text-muted: #625C51;
+  --di-accent: #182230;
+  --di-accent-2: #A27A3B;
+  --di-depth: #9C6B4F;
+}
+
+[data-deus-system="midnight-plum"] {
+  --di-bg: #100817;
+  --di-surface: #1C1026;
+  --di-surface-raised: #2B1838;
+  --di-text: #F6EEF8;
+  --di-text-muted: #C8B3CF;
+  --di-accent: #8B5FBF;
+  --di-accent-2: #C6A15B;
+  --di-depth: #B9A3C9;
+}
+
+[data-deus-system="oceanic-pearl"] {
+  --di-bg: #EEF6F4;
+  --di-surface: #FFFFFF;
+  --di-surface-raised: #D8EBE7;
+  --di-text: #102A2E;
+  --di-text-muted: #5A7273;
+  --di-accent: #2A9D9A;
+  --di-accent-2: #B99A5B;
+  --di-depth: #0E3B43;
+}
+
+[data-deus-system="clay-copper"] {
+  --di-bg: #211812;
+  --di-surface: #32251C;
+  --di-surface-raised: #493729;
+  --di-text: #F4E7D5;
+  --di-text-muted: #C9B59D;
+  --di-accent: #B87345;
+  --di-accent-2: #D4B88C;
+  --di-depth: #3A4630;
+}
+
+.deus-system-surface {
+  background: var(--di-bg);
+  color: var(--di-text);
+}
+
+.deus-system-card {
+  background: var(--di-surface);
+  color: var(--di-text);
+  border: 1px solid color-mix(in srgb, var(--di-accent) 28%, transparent);
+  box-shadow: 0 24px 80px color-mix(in srgb, var(--di-bg) 76%, black);
+}
+
+.deus-system-eyebrow {
+  color: var(--di-accent);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.deus-system-muted {
+  color: var(--di-text-muted);
+}
+
+.deus-system-button {
+  background: var(--di-accent);
+  color: var(--di-bg);
+  border: 1px solid color-mix(in srgb, var(--di-accent) 82%, white);
+}
+
+.deus-system-button-secondary {
+  background: transparent;
+  color: var(--di-text);
+  border: 1px solid color-mix(in srgb, var(--di-accent) 55%, transparent);
+}
