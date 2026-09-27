@@ -1,0 +1,177 @@
+{
+  "brand": "Deus Intus",
+  "tagline": "Awaken the Power Within.",
+  "purpose": "Switchable Deus Intus colour systems for Claude Design, Open Design, Codex, web apps, digital product generators, social templates, and PDF generators.",
+  "defaultSystem": "core-obsidian",
+  "usageRule": "Do not default to navy/gold for every output. Use the system that matches the asset purpose while preserving the Deus Intus premium spiritual-modern identity.",
+  "systems": {
+    "core-obsidian": {
+      "name": "Core Obsidian",
+      "feeling": "Luxury, depth, authority",
+      "bestFor": ["main brand", "premium shop", "hero banners", "serious transformation content"],
+      "colors": {
+        "background": "#080A0F",
+        "surface": "#101620",
+        "surfaceRaised": "#17202C",
+        "textPrimary": "#F4EFE4",
+        "textMuted": "#B8AE9D",
+        "accentPrimary": "#C8A45D",
+        "accentSecondary": "#33D6C5",
+        "accentDepth": "#1B2A55"
+      }
+    },
+    "luminous-ivory": {
+      "name": "Luminous Ivory",
+      "feeling": "Clean, calm, premium, readable",
+      "bestFor": ["lead magnets", "PDFs", "journals", "worksheets", "course pages", "email capture"],
+      "colors": {
+        "background": "#F7F1E6",
+        "surface": "#FFF9EF",
+        "surfaceRaised": "#EFE3CF",
+        "textPrimary": "#17130E",
+        "textMuted": "#6F6251",
+        "accentPrimary": "#B88A3B",
+        "accentSecondary": "#111827",
+        "accentDepth": "#BFE8E2"
+      }
+    },
+    "dawn-sage": {
+      "name": "Dawn Sage",
+      "feeling": "Grounded, healing, reflective",
+      "bestFor": ["wellness", "healing", "reset rituals", "nature-led content", "softer carousels"],
+      "colors": {
+        "background": "#E9E5D8",
+        "surface": "#F6F1E8",
+        "surfaceRaised": "#D7D4C2",
+        "textPrimary": "#18221C",
+        "textMuted": "#65705F",
+        "accentPrimary": "#7C8B6F",
+        "accentSecondary": "#B79A58",
+        "accentDepth": "#243529"
+      }
+    },
+    "solar-altar": {
+      "name": "Solar Altar",
+      "feeling": "Warm, radiant, confident",
+      "bestFor": ["launches", "offers", "premium product drops", "celebratory posts"],
+      "colors": {
+        "background": "#1A120B",
+        "surface": "#2A1D12",
+        "surfaceRaised": "#3B2A19",
+        "textPrimary": "#FFF4DE",
+        "textMuted": "#D7BE91",
+        "accentPrimary": "#E2B75D",
+        "accentSecondary": "#B85C38",
+        "accentDepth": "#F4E0BA"
+      }
+    },
+    "celestial-teal": {
+      "name": "Celestial Teal",
+      "feeling": "Modern, mystical, intelligent",
+      "bestFor": ["digital products", "app UI", "generators", "knowledge hub", "interactive tools"],
+      "colors": {
+        "background": "#06151A",
+        "surface": "#0C242B",
+        "surfaceRaised": "#12343D",
+        "textPrimary": "#ECF8F6",
+        "textMuted": "#A8C8C4",
+        "accentPrimary": "#38DCC8",
+        "accentSecondary": "#C9A65E",
+        "accentDepth": "#10172A"
+      }
+    },
+    "rose-ember": {
+      "name": "Rose Ember",
+      "feeling": "Warm, human, intimate",
+      "bestFor": ["self-love", "shadow work", "inner child", "feminine collections", "softer apparel"],
+      "colors": {
+        "background": "#241316",
+        "surface": "#351F23",
+        "surfaceRaised": "#4A2D31",
+        "textPrimary": "#FFF2EC",
+        "textMuted": "#D9BEB5",
+        "accentPrimary": "#C77B72",
+        "accentSecondary": "#F0C9BC",
+        "accentDepth": "#C8A45D"
+      }
+    },
+    "monastic-stone": {
+      "name": "Monastic Stone",
+      "feeling": "Serious, quiet, editorial",
+      "bestFor": ["long-form reading", "workbook interiors", "minimalist educational content"],
+      "colors": {
+        "background": "#EDE8DC",
+        "surface": "#F9F4EA",
+        "surfaceRaised": "#D8D0C0",
+        "textPrimary": "#1A1A17",
+        "textMuted": "#625C51",
+        "accentPrimary": "#182230",
+        "accentSecondary": "#A27A3B",
+        "accentDepth": "#9C6B4F"
+      }
+    },
+    "midnight-plum": {
+      "name": "Midnight Plum",
+      "feeling": "Mystical, deep, cinematic",
+      "bestFor": ["shadow work", "mystery", "deeper spiritual content", "premium night campaigns"],
+      "colors": {
+        "background": "#100817",
+        "surface": "#1C1026",
+        "surfaceRaised": "#2B1838",
+        "textPrimary": "#F6EEF8",
+        "textMuted": "#C8B3CF",
+        "accentPrimary": "#8B5FBF",
+        "accentSecondary": "#C6A15B",
+        "accentDepth": "#B9A3C9"
+      }
+    },
+    "oceanic-pearl": {
+      "name": "Oceanic Pearl",
+      "feeling": "Clean, airy, expansive",
+      "bestFor": ["lighter social posts", "breathwork", "clarity", "coastal calm", "fresh resets"],
+      "colors": {
+        "background": "#EEF6F4",
+        "surface": "#FFFFFF",
+        "surfaceRaised": "#D8EBE7",
+        "textPrimary": "#102A2E",
+        "textMuted": "#5A7273",
+        "accentPrimary": "#2A9D9A",
+        "accentSecondary": "#B99A5B",
+        "accentDepth": "#0E3B43"
+      }
+    },
+    "clay-copper": {
+      "name": "Clay Copper",
+      "feeling": "Earthy, strong, tactile",
+      "bestFor": ["grounded masculinity", "discipline", "body", "movement", "founder-led posts"],
+      "colors": {
+        "background": "#211812",
+        "surface": "#32251C",
+        "surfaceRaised": "#493729",
+        "textPrimary": "#F4E7D5",
+        "textMuted": "#C9B59D",
+        "accentPrimary": "#B87345",
+        "accentSecondary": "#D4B88C",
+        "accentDepth": "#3A4630"
+      }
+    }
+  },
+  "typography": {
+    "heading": ["Cormorant Garamond", "Playfair Display", "Georgia", "serif"],
+    "body": ["Inter", "Manrope", "system-ui", "sans-serif"],
+    "rules": [
+      "Use no more than two type families per asset.",
+      "Use generous line height.",
+      "Use letter spacing for short uppercase labels.",
+      "Never use novelty spiritual fonts."
+    ]
+  },
+  "brandConstants": [
+    "Premium spiritual-modern, not generic wellness.",
+    "Calm authority, not loud motivational hype.",
+    "Precise sacred geometry only.",
+    "Generous negative space.",
+    "Warm readable contrast.",
+    "Avoid clutter, cheap gradients, childish icons, and over-busy mystical decoration."
+  ]
+}

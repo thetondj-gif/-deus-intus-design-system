@@ -6,13 +6,15 @@ This repository is a public, reusable Open Design / Claude Design-style design-s
 
 ## Package purpose
 
-The package defines the Deus Intus visual system for premium spiritual streetwear, storefront layouts, product mockups, social visuals, collection pages, and reusable UI kits.
+The package defines the Deus Intus visual system for premium spiritual streetwear, storefront layouts, product mockups, social visuals, collection pages, reusable UI kits, and switchable colour systems.
 
 It balances:
 
 - premium streetwear restraint
 - sacred geometry and spiritual mechanics
 - high-contrast luxury colour
+- lighter lead-magnet and workbook systems
+- seasonal and campaign-specific colour variation
 - modular storefront structure
 - reusable agent instructions
 - previewable HTML cards for audit and design review
@@ -25,6 +27,10 @@ It balances:
 | `DESIGN.md` | Source-backed design rules, package rationale, and implementation guidance. |
 | `SKILL.md` | Agent-facing instructions for using the design system correctly. |
 | `colors_and_type.css` | Reusable CSS tokens for colour, type, spacing, radius, shadows, and states. |
+| `design-systems/alternative-colour-systems.md` | Lighter and alternative Deus Intus colour systems so the brand does not over-rely on navy/gold. |
+| `tokens/deus-intus-colour-systems.json` | Machine-readable palette tokens for Claude Design, Open Design, Codex, app builders, and generators. |
+| `tokens/deus-intus-colour-systems.css` | CSS variable implementation of the alternative colour systems. |
+| `prompts/claude-design-colour-system-instructions.md` | Drop-in prompt instructions for Claude Design and similar agents. |
 | `preview/` | Focused HTML preview cards for colours, typography, spacing, components, brand assets, and product layouts. |
 | `ui_kits/app/` | Applied interface kit that imports the shared tokens and modular components. |
 | `context/github/` | Evidence notes explaining the linked GitHub source context behind the package. |
@@ -43,18 +49,47 @@ For fuller package-aware tools, point to the repository root:
 https://github.com/thetondj-gif/-deus-intus-design-system
 ```
 
+## Alternative colour systems
+
+The flagship Deus Intus look should remain premium dark navy/obsidian with gold accents, but not every product, carousel, lead magnet, banner, or app should use the same navy/gold treatment. The alternative systems give the brand more range while staying recognisable.
+
+Available systems:
+
+| System | Best for |
+| :--- | :--- |
+| `core-obsidian` | Flagship dark luxury, shop heroes, premium transformation content. |
+| `luminous-ivory` | Lead magnets, journals, PDFs, worksheets, course pages. |
+| `dawn-sage` | Healing, breathwork, reset rituals, softer carousels. |
+| `solar-altar` | Launches, offers, premium product drops, founder announcements. |
+| `celestial-teal` | Digital products, app UI, generators, knowledge hubs. |
+| `rose-ember` | Self-love, shadow work, feminine collections, warm community posts. |
+| `monastic-stone` | Editorial guides, workbooks, long-form education. |
+| `midnight-plum` | Deep mystical campaigns, shadow work, night rituals. |
+| `oceanic-pearl` | Fresh light clarity, breathwork, clean social posts. |
+| `clay-copper` | Discipline, embodiment, men’s collections, grounded founder-led assets. |
+
+Use these files when building or briefing tools:
+
+```text
+design-systems/alternative-colour-systems.md
+tokens/deus-intus-colour-systems.json
+tokens/deus-intus-colour-systems.css
+prompts/claude-design-colour-system-instructions.md
+```
+
 ## Reusable design guidance
 
 When generating Deus Intus outputs, use these principles:
 
 1. Lead with the tagline: **Awaken the Power Within.**
-2. Use Obsidian, Alabaster, Aether Gold, Pineal Indigo, and Prana Sage as the core palette.
-3. Use strong hierarchy, wide tracking, and generous negative space.
-4. Keep sacred geometry mathematically clean and never distorted.
-5. Prioritise premium spiritual streetwear over generic wellness graphics.
-6. Keep product imagery tactile, directional, shadowed, and elevated.
-7. Keep UI motion slow, intentional, and breath-like.
+2. Use Obsidian, Alabaster, Aether Gold, Pineal Indigo, and Prana Sage as the core palette when the flagship identity is required.
+3. Use the alternative colour systems when the asset needs a lighter, warmer, softer, more editorial, or more digital expression.
+4. Use strong hierarchy, wide tracking, and generous negative space.
+5. Keep sacred geometry mathematically clean and never distorted.
+6. Prioritise premium spiritual streetwear over generic wellness graphics.
+7. Keep product imagery tactile, directional, shadowed, and elevated.
+8. Keep UI motion slow, intentional, and breath-like.
 
 ## Audit notes
 
-This package intentionally includes README, SKILL, CSS tokens, design documentation, source evidence, focused preview cards, and an applied UI kit so it can be reused outside a single Open Design run.
+This package intentionally includes README, SKILL, CSS tokens, design documentation, source evidence, focused preview cards, an applied UI kit, and switchable colour systems so it can be reused outside a single Open Design run.
